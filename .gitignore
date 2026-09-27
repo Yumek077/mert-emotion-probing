@@ -55,3 +55,9 @@ outputs/embeddings/*
 # Temporary files
 *.tmp
 *.log
+
+# Private learning notes
+personal_notes/
+
+# Temporary investigation reports and generated inspection figures
+docs/codex_reports/

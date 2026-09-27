@@ -10,7 +10,8 @@ dependencies:
       - --extra-index-url https://download.pytorch.org/whl/cu130
       - torch==2.14.0+cu130
       - torchaudio==2.11.0+cu130
-      - transformers==5.17.0
+      - transformers==4.24.0
+      - nnAudio==0.3.4
       - librosa==0.11.0
       - soundfile==0.14.0
       - numpy==2.2.6

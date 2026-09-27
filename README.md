@@ -20,16 +20,23 @@ DEAM Audio
 
 MERT remains frozen in the main experiments.
 
-## Planned Experiments
+## Project Roadmap
 
-The following experiments are planned and have not yet been completed:
+Module A (data and representation setup) is complete. The DEAM input scope,
+audio preprocessing protocol, MERT compatibility stack, representation indexing,
+and real-audio extraction path have been verified.
 
-- Data and representation setup
+The remaining experiments are planned and have not yet been completed:
+
+- Dataset-wide representation extraction and probing preparation
 - Basic Valence/Arousal probing
 - Layer-wise probing
 - Traditional audio-feature baseline
 - Confound and error analysis
 - Optional robustness/ablation experiments
+
+The authoritative Module A protocol is documented in
+[`docs/research_logs/module_a_data_and_representation_protocol.md`](docs/research_logs/module_a_data_and_representation_protocol.md).
 
 ## Evaluation
 
@@ -60,7 +67,9 @@ This project uses Python 3.10 with CUDA-enabled PyTorch and has been tested loca
 Work in progress.
 
 Current stage:
-Repository and reproducibility setup.
+Module A complete; preparing for representation extraction and probing setup.
+
+No formal Valence/Arousal probing results are available yet.
 
 ## Scope
 
