@@ -51,6 +51,10 @@ Valence and Arousal will be evaluated separately.
 
 Raw DEAM audio, large processed data, model weights, and cached MERT embeddings are intentionally excluded from version control.
 
+## Environment
+
+This project uses Python 3.10 with CUDA-enabled PyTorch and has been tested locally on an NVIDIA RTX 4060 Laptop GPU. The environment specification is provided in `environment.yml`.
+
 ## Status
 
 Work in progress.
