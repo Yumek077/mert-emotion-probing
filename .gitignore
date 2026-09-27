@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+.conda/
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Environment files and secrets
+.env
+.env.*
+*.local
+
+# Dataset and audio
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# Large audio formats
+*.wav
+*.mp3
+*.flac
+*.m4a
+*.ogg
+
+# Model and machine-learning caches
+.cache/
+cache/
+huggingface/
+models/
+checkpoints/
+
+# Large model files
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+
+# Cached embeddings
+outputs/embeddings/*
+!outputs/embeddings/.gitkeep
+
+# Temporary files
+*.tmp
+*.log
