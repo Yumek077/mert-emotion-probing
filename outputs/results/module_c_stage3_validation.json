@@ -1,0 +1,377 @@
+{
+  "stage": "Module C Stage C3",
+  "stage_objective": "Train/Validation Layer-12 Ridge selection and pre-Test verification",
+  "created_utc": "2026-09-29T11:06:59.908546+00:00",
+  "protocol": {
+    "research_question": "Can continuous Valence and Arousal be decoded from frozen MERT representations?",
+    "interpretation": "linear_decodability_not_human_like_understanding",
+    "representation_level": "transformer_layer_12",
+    "resolved_representation_index": 12,
+    "input_dimension": 768,
+    "targets": [
+      "valence",
+      "arousal"
+    ],
+    "target_columns": {
+      "valence": "valence_mean",
+      "arousal": "arousal_mean"
+    },
+    "probe": "Ridge Regression",
+    "ridge_solver": "cholesky",
+    "alpha_grid": [
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0,
+      1000.0,
+      10000.0
+    ],
+    "selection_metric": "validation_r2",
+    "exact_tie_rule": "choose_larger_alpha_on_actual_exact_numerical_tie",
+    "input_scaler": "StandardScaler fit on Train only",
+    "target_standardization": false,
+    "baseline": "constant prediction from Train target mean",
+    "test_policy": "membership/alignment verification only; no predictions or metrics"
+  },
+  "inputs": {
+    "canonical_cache": {
+      "path": "outputs/embeddings/deam_mert_v1_95m_meanpool_all_layers.pt",
+      "size_bytes": 69666277,
+      "sha256": "8174fc08a0155af6436fc0a6e1f459d0d6965df94268804612fda339adcf55bc"
+    },
+    "labels": {
+      "path": "data/raw/deam/verification/deam_item_mapping.csv",
+      "size_bytes": 354424,
+      "sha256": "b36f5a5c5dff6ccacaf0db28e9eae76a072a18654ac476c3dc4cc11e7c926ff7"
+    },
+    "fixed_split": {
+      "path": "data/metadata/deam_primary_split_seed42.csv",
+      "size_bytes": 19425,
+      "sha256": "edb62f433e95fe6d5e33302fff546ce34fa90e486834474ee27b0fea9d56140a"
+    }
+  },
+  "data_assembly_verification": {
+    "cache_shape": [
+      1744,
+      13,
+      768
+    ],
+    "cache_dtype": "torch.float32",
+    "cache_sample_id_count": 1744,
+    "cache_sample_ids_unique": 1744,
+    "metadata_identity_key": "sample_id",
+    "metadata_ordering": "ascending sample_id",
+    "metadata_representation_levels": [
+      "pre_transformer",
+      "transformer_layer_1",
+      "transformer_layer_2",
+      "transformer_layer_3",
+      "transformer_layer_4",
+      "transformer_layer_5",
+      "transformer_layer_6",
+      "transformer_layer_7",
+      "transformer_layer_8",
+      "transformer_layer_9",
+      "transformer_layer_10",
+      "transformer_layer_11",
+      "transformer_layer_12"
+    ],
+    "resolved_representation_level": "transformer_layer_12",
+    "resolved_representation_index": 12,
+    "selected_feature_shape": [
+      1744,
+      768
+    ],
+    "selected_features_finite": true,
+    "selected_all_zero_row_count": 0,
+    "label_table_rows": 1802,
+    "label_table_unique_ids": 1802,
+    "primary_label_rows": 1744,
+    "excluded_full_song_rows": 58,
+    "target_columns": [
+      "valence_mean",
+      "arousal_mean"
+    ],
+    "primary_targets_complete_and_finite": true,
+    "split_rows": 1744,
+    "split_unique_ids": 1744,
+    "split_counts": {
+      "train": 1221,
+      "validation": 262,
+      "test": 261
+    },
+    "allowed_split_values": [
+      "train",
+      "validation",
+      "test"
+    ],
+    "invalid_split_values": [],
+    "cross_split_overlap_count": 0,
+    "cache_label_split_id_sets_equal": true,
+    "assembled_sample_count": 1744,
+    "assembled_sample_ids_unique": 1744,
+    "assembled_feature_shape": [
+      1744,
+      768
+    ],
+    "assembled_targets_finite": true,
+    "assembled_features_finite": true,
+    "joined_split_counts": {
+      "train": 1221,
+      "validation": 262,
+      "test": 261
+    },
+    "id_based_join_row_order_invariance_verified": true,
+    "excluded_full_songs_in_join": 0
+  },
+  "targets": {
+    "valence": {
+      "alpha_grid": [
+        0.0001,
+        0.001,
+        0.01,
+        0.1,
+        1.0,
+        10.0,
+        100.0,
+        1000.0,
+        10000.0
+      ],
+      "selection_metric": "validation_r2",
+      "exact_tie_rule": "choose_larger_alpha",
+      "candidate_validation_r2": [
+        {
+          "alpha": 0.0001,
+          "validation_r2": -0.15121267076354572
+        },
+        {
+          "alpha": 0.001,
+          "validation_r2": -0.15103880548608872
+        },
+        {
+          "alpha": 0.01,
+          "validation_r2": -0.1493093757512265
+        },
+        {
+          "alpha": 0.1,
+          "validation_r2": -0.13287924136732499
+        },
+        {
+          "alpha": 1.0,
+          "validation_r2": -0.02122024632396813
+        },
+        {
+          "alpha": 10.0,
+          "validation_r2": 0.25637408641930715
+        },
+        {
+          "alpha": 100.0,
+          "validation_r2": 0.46131394088682554
+        },
+        {
+          "alpha": 1000.0,
+          "validation_r2": 0.5238721771324847
+        },
+        {
+          "alpha": 10000.0,
+          "validation_r2": 0.45792494646438275
+        }
+      ],
+      "best_validation_r2": 0.5238721771324847,
+      "exact_tie_count": 1,
+      "exact_tied_alphas": [
+        1000.0
+      ],
+      "selected_alpha": 1000.0,
+      "selected_validation_metrics": {
+        "mae": 0.6330066115479925,
+        "r2": 0.5238721771324847,
+        "pearson_r": 0.7250228284501122,
+        "pearson_r_status": "defined"
+      },
+      "baseline": {
+        "definition": "constant_prediction_from_train_target_mean",
+        "train_target_mean": 4.894692874692875,
+        "validation_metrics": {
+          "mae": 0.9248255715812967,
+          "r2": -4.606428511388927e-05,
+          "pearson_r": null,
+          "pearson_r_status": "undefined_constant_prediction"
+        },
+        "pearson_r_explanation": "Undefined because the mean baseline has zero prediction variance; serialized as null rather than 0."
+      },
+      "standardization": {
+        "input_scaler": "sklearn.preprocessing.StandardScaler",
+        "fit_split": "train",
+        "fit_sample_count": 1221,
+        "transformed_splits": [
+          "train",
+          "validation"
+        ],
+        "target_standardized": false,
+        "train_mean_verified": true,
+        "train_variance_verified": true
+      },
+      "ridge": {
+        "implementation": "sklearn.linear_model.Ridge",
+        "solver": "cholesky",
+        "fit_intercept": true,
+        "fit_split": "train",
+        "fit_sample_count_per_candidate": 1221
+      }
+    },
+    "arousal": {
+      "alpha_grid": [
+        0.0001,
+        0.001,
+        0.01,
+        0.1,
+        1.0,
+        10.0,
+        100.0,
+        1000.0,
+        10000.0
+      ],
+      "selection_metric": "validation_r2",
+      "exact_tie_rule": "choose_larger_alpha",
+      "candidate_validation_r2": [
+        {
+          "alpha": 0.0001,
+          "validation_r2": -0.2762810842104555
+        },
+        {
+          "alpha": 0.001,
+          "validation_r2": -0.27606511299533976
+        },
+        {
+          "alpha": 0.01,
+          "validation_r2": -0.2739150882767858
+        },
+        {
+          "alpha": 0.1,
+          "validation_r2": -0.2533296650440142
+        },
+        {
+          "alpha": 1.0,
+          "validation_r2": -0.10748843349585813
+        },
+        {
+          "alpha": 10.0,
+          "validation_r2": 0.255105385572273
+        },
+        {
+          "alpha": 100.0,
+          "validation_r2": 0.5165369381051126
+        },
+        {
+          "alpha": 1000.0,
+          "validation_r2": 0.565970173706767
+        },
+        {
+          "alpha": 10000.0,
+          "validation_r2": 0.47542237479518945
+        }
+      ],
+      "best_validation_r2": 0.565970173706767,
+      "exact_tie_count": 1,
+      "exact_tied_alphas": [
+        1000.0
+      ],
+      "selected_alpha": 1000.0,
+      "selected_validation_metrics": {
+        "mae": 0.6313276002872756,
+        "r2": 0.565970173706767,
+        "pearson_r": 0.7531730690976925,
+        "pearson_r_status": "defined"
+      },
+      "baseline": {
+        "definition": "constant_prediction_from_train_target_mean",
+        "train_target_mean": 4.816953316953317,
+        "validation_metrics": {
+          "mae": 1.0126818838269218,
+          "r2": -1.8368567474613684e-05,
+          "pearson_r": null,
+          "pearson_r_status": "undefined_constant_prediction"
+        },
+        "pearson_r_explanation": "Undefined because the mean baseline has zero prediction variance; serialized as null rather than 0."
+      },
+      "standardization": {
+        "input_scaler": "sklearn.preprocessing.StandardScaler",
+        "fit_split": "train",
+        "fit_sample_count": 1221,
+        "transformed_splits": [
+          "train",
+          "validation"
+        ],
+        "target_standardized": false,
+        "train_mean_verified": true,
+        "train_variance_verified": true
+      },
+      "ridge": {
+        "implementation": "sklearn.linear_model.Ridge",
+        "solver": "cholesky",
+        "fit_intercept": true,
+        "fit_split": "train",
+        "fit_sample_count_per_candidate": 1221
+      }
+    }
+  },
+  "validation_prediction_artifact": {
+    "path": "outputs/results/module_c_stage3_validation_predictions.csv",
+    "rows": 524,
+    "splits_present": [
+      "validation"
+    ],
+    "sample_id_aligned": true,
+    "contains_test_predictions": false
+  },
+  "determinism": {
+    "valence": {
+      "passed": true,
+      "selected_alpha_equal": true,
+      "candidate_results_equal": true,
+      "selected_metrics_equal": true,
+      "predictions_exactly_equal": true
+    },
+    "arousal": {
+      "passed": true,
+      "selected_alpha_equal": true,
+      "candidate_results_equal": true,
+      "selected_metrics_equal": true,
+      "predictions_exactly_equal": true
+    }
+  },
+  "leakage_controls": {
+    "scaler_fit_split": "train",
+    "ridge_fit_split": "train",
+    "validation_role": "alpha_selection_and_evaluation",
+    "selection_uses_only_validation_r2": true,
+    "baseline_mean_source": "train_target_only",
+    "targets_standardized": false,
+    "test_used_for_fitting": false,
+    "test_used_for_selection": false,
+    "test_predictions_generated": false,
+    "test_metrics_computed": false
+  },
+  "pre_test_gate": {
+    "population_and_membership_verified": true,
+    "test_id_count": 261,
+    "test_ids_used_only_for_integrity_and_alignment": true,
+    "test_predictions_generated": false,
+    "test_performance_computed": false,
+    "test_performance_inspected": false,
+    "ready_for_researcher_review_before_stage_c4": true
+  },
+  "software_environment": {
+    "python": "3.10.21",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3",
+    "scikit_learn": "1.7.2",
+    "torch": "2.14.0+cu130",
+    "platform": "Windows-10-10.0.26200-SP0"
+  }
+}

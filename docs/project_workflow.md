@@ -22,6 +22,16 @@ The workflow preserves research continuity across new ChatGPT and Codex sessions
 - Prefer small, validated steps to implementing an entire Module at once.
 - Do not over-engineer beyond the current research need.
 
+### Minimal Sufficient Rigor
+
+Use minimal sufficient rigor. Research work should be rigorous enough to make the experiment credible, reproducible, interpretable, and resistant to obvious leakage or implementation errors. Do not add experiments, validation layers, statistical procedures, or process stages merely to make the project appear more rigorous.
+
+Introduce new complexity only when it is required by the current research question, needed to resolve an observed problem, or necessary to prevent a meaningful validity or reproducibility issue. Prefer:
+
+**Observed problem → understand the cause → apply the smallest defensible solution → verify → document**
+
+Avoid proactively expanding the experiment beyond the current research objective.
+
 ## 3. Roles and Responsibilities
 
 ### Researcher
@@ -63,11 +73,17 @@ Codex is responsible primarily for:
 
 Codex must not silently change the sample definition, preprocessing, model choice, layer selection, pooling, split, target definition, probe design, evaluation protocol, or any other locked research decision. If implementation exposes a conflict with the locked protocol, Codex must report the conflict and stop that part of the work rather than silently redesigning the experiment.
 
+### Implementation Issues Versus Research-Level Decisions
+
+Codex need not stop for every ordinary engineering detail. It may independently solve, verify, and document implementation issues such as file and path handling, schema parsing, deterministic serialization, ordinary assertions, reusable helpers, minor ID-column normalization when semantics are already frozen, output formatting, implementation-level numerical edge cases, and straightforward library or API usage. These solutions belong in the relevant Stage report.
+
+Codex must stop for researcher discussion before changing anything that affects a frozen research decision, the research question or interpretation, dataset or sample population, target or representation definition, split policy, primary evaluation protocol, an already frozen model or probe family, result-selection logic, or experiment scope. A research-level decision must never be silently relabeled as an implementation detail.
+
 ## 4. Standard Module Workflow
 
 Every research Module follows:
 
-**Understand → Decide → Codex Implement → Verify → Interpret → Learning Checkpoint → Iterate / Freeze**
+**Understand → Decide → Codex Implement → Verify → Interpret → What I Should Now Be Able to Explain → Iterate / Freeze**
 
 ### Understand
 
@@ -86,6 +102,12 @@ Do not reopen a locked decision without a concrete reason.
 ### Codex Implement
 
 Implement only the current Stage. Do not implement an entire Module unless explicitly instructed.
+
+The default implementation unit should be one coherent objective, not a sequence of micro-stages. Prefer:
+
+**Research objective → discuss necessary research decisions → one coherent Codex implementation Stage → detailed process report → researcher review → interpret and freeze**
+
+Split implementation into multiple Stages only when a genuine research decision lies between them, later execution depends on interpreting an earlier empirical result, a protected evaluation boundary such as held-out Test requires a deliberate gate, or the work is too large to verify safely as one unit. Ordinary engineering checkpoints do not automatically require separate research Stages.
 
 ### Verify
 
@@ -108,7 +130,15 @@ Every completed Stage must include a researcher-facing section titled **“What 
 - what the result means; and
 - what the Stage does not establish.
 
-This checkpoint normally occurs in the ChatGPT discussion and does not require a separate GitHub file for every Stage.
+Every research Stage must leave a repository-visible checkpoint, including conceptual Stages that produce no code or experiment. The existing Stage-level documentation convention remains `docs/codex_reports/`. Depending on the nature of the Stage, its report may document conceptual understanding, research decisions, implementation, validation, or experiment execution.
+
+### Three-Level Learning Priority
+
+Human learning should not treat all repository detail as equally important:
+
+1. **Level 1 — Research Mainline:** highest priority. The researcher should readily explain why the Module exists, its question, input, high-level process, output, and connection to the next Module.
+2. **Level 2 — Key Methodological Decisions:** understand what material choices were made, why they were made, what reasonable alternatives existed, and how those choices affect interpretation. These decisions are the core preparation for research discussion, interviews, applications, and later review.
+3. **Level 3 — Engineering Details:** understand the purpose of important mechanisms and the failures they prevent, but do not memorize exact helper or script names, serialization details, every assertion or command, low-level API syntax, or incidental numerical values that do not affect interpretation. Those details remain recoverable from code and Stage reports.
 
 ### Iterate / Freeze
 
@@ -165,7 +195,7 @@ A typical report contains:
 9. Exact commands used
 10. Conclusion and whether the Stage passed
 
-Stage reports are implementation records, not final research narratives.
+For larger implementation Stages, the report is the repository's detailed technical memory. It should preserve what was implemented and inspected, verification performed, problems and root causes, solutions, artifacts, important structural or numerical checks, unresolved issues, and whether any frozen decision was affected. The researcher is not expected to memorize all of this. Stage reports are not final Module research narratives.
 
 ## 8. Module-Level Research / Implementation Logs
 
@@ -185,37 +215,39 @@ Examples include `module_a_what_i_should_understand.md` and `module_b_what_i_sho
 
 These notes are Chinese-first, may retain useful English technical terms, and support long-term review, MSc or RA interview preparation, and rebuilding understanding after the project. They are not GitHub-facing and must remain excluded from Git tracking.
 
-Use this default structure:
+Personal notes are review tools, not duplicate technical histories. Keep them detailed enough to learn from but substantially easier to revisit than the Stage reports. Use this default structure:
 
-### 1. Plain-Language Full Module Review
+### 1. Research Mainline
 
-Provide a continuous, readable explanation rather than a fragmented checklist. Explain what problem the Module solved, why it was needed, what was done, how the experiment progressed, and what was learned.
+Tell the complete Module story concisely: why it exists, its input, high-level process, output, and connection to the research question or next Module.
 
-### 2. What I Should Now Be Able to Answer
+### 2. Key Decisions — Why This, Not the Alternatives?
 
-Convert important Stage learning checkpoints into focused Q&A form. Remove duplication and emphasize genuine understanding.
+Include only choices that materially affect methodology or interpretation. For each, explain what was chosen, why, what reasonable alternative existed, and why it was not selected.
 
-### 3. Core Formulas / Tensor Shapes
+### 3. Essential Concepts I Need to Understand
 
-Include only formulas and tensor shapes useful for understanding and future review. Explain every dimension and symbol.
+Include only concepts necessary to explain the research. Where useful, introduce important terminology as `English term（简洁中文解释）` rather than building an exhaustive glossary.
 
-### 4. If My Supervisor / RA Interviewer Asked Me
+### 4. Engineering Details — Understand the Purpose, Not Memorize the Implementation
 
-Provide concise, natural explanations in both Chinese and English. Focus on research logic rather than memorized formal definitions.
+Summarize what each important engineering mechanism does, why it exists, and what failure it prevents. Do not expect the researcher to memorize commands, helper names, serialization details, assertions, or low-level library syntax.
 
-### 5. What This Module Establishes and Does Not Establish
+### 5. What I Should Be Able to Explain
 
-Separate supported conclusions from over-claims.
+Use a concise set of high-value questions or checkpoints focused on the research mainline, methodological choices, and interpretation boundaries rather than implementation trivia.
 
-### 6. Self-Test
+### 6. One-Minute Recap
 
-Include questions the researcher should attempt without looking at the answers.
+End with a compact summary that can restore the entire Module quickly after a long gap.
 
 ## 10. Artifact and Directory Policy
 
+Before creating documentation, artifacts, or directories, inspect the repository's actual organization and preserve established conventions where possible. Do not introduce a new hierarchy merely because it appears theoretically cleaner. Restructure only when the existing organization genuinely cannot support the requirement.
+
 ### `docs/codex_reports/`
 
-- Stage-level Codex implementation reports
+- Stage-level reports covering conceptual understanding, research decisions, implementation, validation, or experiment execution as appropriate
 - English
 - GitHub-facing
 
