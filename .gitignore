@@ -59,5 +59,8 @@ outputs/embeddings/*
 # Private learning notes
 personal_notes/
 
+# Local research handoffs
+handoffs/
+
 # Generated inspection figures
 docs/codex_reports/figures/

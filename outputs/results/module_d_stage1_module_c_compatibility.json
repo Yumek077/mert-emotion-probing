@@ -1,0 +1,44 @@
+{
+  "verify_basic_probing_results.py": {
+    "passed": true,
+    "validation_prediction_rows": 524,
+    "validation_ids": 262,
+    "contains_test_ids": false,
+    "target_metrics_recomputed": [
+      "valence",
+      "arousal"
+    ],
+    "mean_baseline_recomputed": [
+      "valence",
+      "arousal"
+    ],
+    "exact_tie_rule_verified": true,
+    "near_but_not_exact_tie_rule_verified": true,
+    "test_predictions_or_metrics_inspected": false
+  },
+  "verify_held_out_test_results.py": {
+    "passed": true,
+    "test_prediction_rows": 522,
+    "unique_test_ids": 261,
+    "contains_train_or_validation_ids": false,
+    "test_metrics_recomputed": [
+      "valence",
+      "arousal"
+    ],
+    "mean_baseline_recomputed": [
+      "valence",
+      "arousal"
+    ],
+    "frozen_alphas_verified": {
+      "valence": 1000.0,
+      "arousal": 1000.0
+    },
+    "deterministic_reruns_verified": true,
+    "post_test_tuning_performed": false
+  },
+  "default_layer12_assembly_exactly_unchanged": true,
+  "module_c_candidate_scores_exactly_equal": true,
+  "module_c_selected_validation_metrics_exactly_equal": true,
+  "passed": true,
+  "created_utc": "2026-09-30T09:52:52.239283+00:00"
+}

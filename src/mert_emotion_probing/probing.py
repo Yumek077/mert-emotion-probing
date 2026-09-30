@@ -33,7 +33,7 @@ class ProtocolViolation(RuntimeError):
 
 @dataclass(frozen=True)
 class AssembledProbingDataset:
-    """ID-aligned Layer-12 features, targets, split roles, and verification."""
+    """ID-aligned single-level features, targets, split roles, and verification."""
 
     sample_ids: np.ndarray
     features: np.ndarray
@@ -92,7 +92,9 @@ def _boolean_series(series: pd.Series, name: str) -> pd.Series:
     return normalized.map(mapping).astype(bool)
 
 
-def _load_cache(cache_path: Path) -> tuple[np.ndarray, np.ndarray, int, dict[str, Any]]:
+def _load_cache(
+    cache_path: Path, representation_level: str = PRIMARY_LEVEL_NAME
+) -> tuple[np.ndarray, np.ndarray, int, dict[str, Any]]:
     if not cache_path.is_file():
         raise FileNotFoundError(f"Canonical cache not found: {cache_path}")
     payload = torch.load(cache_path, map_location="cpu", weights_only=False)
@@ -138,21 +140,23 @@ def _load_cache(cache_path: Path) -> tuple[np.ndarray, np.ndarray, int, dict[str
         raise ProtocolViolation(
             "Cache representation_levels conflict with the frozen Module B mapping"
         )
-    resolved_index = levels.index(PRIMARY_LEVEL_NAME)
-    if resolved_index != 12:
+    if representation_level not in EXPECTED_LEVEL_NAMES:
+        raise ProtocolViolation(f"Unknown representation level: {representation_level}")
+    resolved_index = levels.index(representation_level)
+    if resolved_index != EXPECTED_LEVEL_NAMES.index(representation_level):
         raise ProtocolViolation(
-            f"{PRIMARY_LEVEL_NAME} resolved to index {resolved_index}, expected 12"
+            f"{representation_level} resolved to unexpected index {resolved_index}"
         )
 
     selected = representations[:, resolved_index, :].numpy().copy()
     if selected.shape != (PRIMARY_SAMPLE_COUNT, EXPECTED_HIDDEN_DIMENSION):
-        raise ProtocolViolation(f"Selected Layer-12 shape is {selected.shape}")
+        raise ProtocolViolation(f"Selected level shape is {selected.shape}")
     if not np.isfinite(selected).all():
-        raise ProtocolViolation("Selected Layer-12 features contain NaN or Inf")
+        raise ProtocolViolation("Selected level features contain NaN or Inf")
     all_zero_rows = np.flatnonzero(np.count_nonzero(selected, axis=1) == 0)
     if len(all_zero_rows):
         raise ProtocolViolation(
-            f"Selected Layer-12 features contain all-zero rows: {all_zero_rows.tolist()}"
+            f"Selected level features contain all-zero rows: {all_zero_rows.tolist()}"
         )
 
     verification = {
@@ -163,7 +167,7 @@ def _load_cache(cache_path: Path) -> tuple[np.ndarray, np.ndarray, int, dict[str
         "metadata_identity_key": metadata.get("identity_key"),
         "metadata_ordering": metadata.get("ordering"),
         "metadata_representation_levels": levels,
-        "resolved_representation_level": PRIMARY_LEVEL_NAME,
+        "resolved_representation_level": representation_level,
         "resolved_representation_index": resolved_index,
         "selected_feature_shape": list(selected.shape),
         "selected_features_finite": True,
@@ -261,11 +265,14 @@ def _load_split(split_path: Path) -> tuple[pd.DataFrame, dict[str, Any]]:
 
 
 def assemble_probing_dataset(
-    cache_path: Path, labels_path: Path, split_path: Path
+    cache_path: Path, labels_path: Path, split_path: Path,
+    *, representation_level: str = PRIMARY_LEVEL_NAME,
 ) -> AssembledProbingDataset:
     """Load and join frozen artifacts strictly by authoritative sample identity."""
 
-    cache_ids, selected_features, level_index, cache_checks = _load_cache(cache_path)
+    cache_ids, selected_features, level_index, cache_checks = _load_cache(
+        cache_path, representation_level
+    )
     primary_labels, label_checks = _load_labels(labels_path)
     split_table, split_checks = _load_split(split_path)
 
@@ -341,7 +348,7 @@ def assemble_probing_dataset(
         features=features,
         targets=targets,
         split=split_values,
-        representation_level=PRIMARY_LEVEL_NAME,
+        representation_level=representation_level,
         representation_index=level_index,
         verification=verification,
     )

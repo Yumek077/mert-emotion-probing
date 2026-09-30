@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "created_utc": "2026-09-30T09:52:03.121409+00:00",
+  "configurations": 26,
+  "new_test_configurations": 24,
+  "reused_layer12_configurations": 2,
+  "test_prediction_rows": 6786,
+  "unique_test_ids": 261,
+  "independent_metric_formulas_verified": true,
+  "target_mapping_verified": true,
+  "frozen_alpha_and_train_only_fit_verified": true,
+  "baseline_train_means_verified": true,
+  "layer12_metrics_and_predictions_exactly_equal_to_module_c": true,
+  "gate_chronology_and_hashes_verified": true,
+  "flat_table_verified": true,
+  "figure_files_verified": [
+    {
+      "path": "C:/Users/Rinshinozaki/Documents/ChatGPT/AI music mini proj/mert-emotion-probing/outputs/figures/module_d_stage1_test_r2_trajectory.png",
+      "size_bytes": 106280,
+      "sha256": "032ad47f2582a3a8261d0b2892936d8bbfcd28ab5fba6417a1593764c620ffd6"
+    },
+    {
+      "path": "C:/Users/Rinshinozaki/Documents/ChatGPT/AI music mini proj/mert-emotion-probing/outputs/figures/module_d_stage1_test_r2_trajectory.svg",
+      "size_bytes": 68734,
+      "sha256": "081b12878d176abecd183f721ec4e7f3e98d7c35a5d77f91d443a1c11eff44b0"
+    }
+  ],
+  "post_test_tuning": false
+}

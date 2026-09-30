@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "created_utc": "2026-09-30T09:51:26.769799+00:00",
+  "configurations": 26,
+  "selection_sha256": "ea55c7bf7fca617139f43b23d3982a00e6a2c1d81b1a4c185a7d268044e1db12",
+  "validation_predictions_sha256": "a1573752f6f718239fe9909886ea444e187e11ddd85678688237d771319e1694",
+  "validation_prediction_rows": 6812,
+  "metrics_independently_recomputed": true,
+  "baseline_recomputed_from_train_labels": true,
+  "layer12_module_c_validation_compatible_atol": 1e-12,
+  "all_levels_raw_cache_alignment_verified": true,
+  "reversed_source_rows_invariance_verified": true,
+  "all_26_deterministic_repeats_with_poisoned_test_values": true,
+  "exact_and_near_tie_verified": true,
+  "new_test_predictions_or_metrics_computed": false,
+  "test_integrity_loading_only_before_gate": true
+}

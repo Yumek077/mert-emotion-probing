@@ -1,0 +1,86 @@
+{
+  "started_utc": "2026-09-30T09:51:48.180783+00:00",
+  "gate": {
+    "path": "C:/Users/Rinshinozaki/Documents/ChatGPT/AI music mini proj/mert-emotion-probing/outputs/results/module_d_stage1_pre_test_verification.json",
+    "size_bytes": 807,
+    "sha256": "15d4c650ee820bd0bd74f3ac0f4d401d78d27c605a534b318f1297c6a9ab5dab"
+  },
+  "selection": {
+    "path": "C:/Users/Rinshinozaki/Documents/ChatGPT/AI music mini proj/mert-emotion-probing/outputs/results/module_d_stage1_validation.json",
+    "size_bytes": 106203,
+    "sha256": "ea55c7bf7fca617139f43b23d3982a00e6a2c1d81b1a4c185a7d268044e1db12"
+  },
+  "protocol": {
+    "rq": "How does linear Valence and Arousal decodability vary across the 13 frozen MERT representation levels?",
+    "levels": [
+      "pre_transformer",
+      "transformer_layer_1",
+      "transformer_layer_2",
+      "transformer_layer_3",
+      "transformer_layer_4",
+      "transformer_layer_5",
+      "transformer_layer_6",
+      "transformer_layer_7",
+      "transformer_layer_8",
+      "transformer_layer_9",
+      "transformer_layer_10",
+      "transformer_layer_11",
+      "transformer_layer_12"
+    ],
+    "targets": {
+      "valence": "valence_mean",
+      "arousal": "arousal_mean"
+    },
+    "population": 1744,
+    "excluded_metadata_full_songs": 58,
+    "split_counts": {
+      "train": 1221,
+      "validation": 262,
+      "test": 261
+    },
+    "identity_key": "sample_id",
+    "probe": "Ridge",
+    "solver": "cholesky",
+    "fit_intercept": true,
+    "input_scaler": "StandardScaler fit on Train only",
+    "target_standardization": false,
+    "alpha_grid": [
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0,
+      1000.0,
+      10000.0
+    ],
+    "selection": "maximum Validation R2; exact tie larger alpha",
+    "final_fit": "train_only",
+    "baseline": "constant Train target mean",
+    "metrics": [
+      "mae",
+      "r2",
+      "pearson_r"
+    ],
+    "uncertainty": "point estimates only",
+    "test_policy": "all 26 selections verified and frozen before unified Test sweep; no post-Test tuning",
+    "layer12": "reuse authoritative Module C RQ1 Test metrics and ID-aligned predictions; not new untouched evidence",
+    "interpretation": "complete depth trajectory primary; numerical maxima secondary; no significance or universal best-layer claims",
+    "figure": {
+      "x": "Pre-Transformer then Layer 1 through Layer 12",
+      "y": "Test R2",
+      "series": [
+        "valence",
+        "arousal"
+      ],
+      "zero_reference": true,
+      "style": "unsmoothed connected point estimates; no error bars; identify reused Layer 12",
+      "formats": [
+        "png",
+        "svg"
+      ]
+    },
+    "test_integrity_access": "whole-cache loading and ID/finite checks only before gate; no Test fitting, selection, predictions or metrics"
+  }
+}

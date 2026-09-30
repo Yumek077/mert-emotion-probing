@@ -5,7 +5,7 @@ This project investigates whether continuous musical emotion information can be 
 ## Research Questions
 
 1. Can continuous Valence and Arousal be decoded from frozen MERT representations?
-2. How does emotion decodability vary across MERT Transformer layers?
+2. How does linear Valence and Arousal decodability vary across the 13 frozen MERT representation levels?
 3. Do MERT representations provide emotion-related information beyond traditional low-level audio features?
 4. To what extent might prediction performance be explained by confounding factors such as tempo and energy?
 
@@ -22,21 +22,21 @@ MERT remains frozen in the main experiments.
 
 ## Project Roadmap
 
-Module A (data and representation setup) is complete. The DEAM input scope,
-audio preprocessing protocol, MERT compatibility stack, representation indexing,
-and real-audio extraction path have been verified.
+Modules A–C are complete: the data protocol, canonical frozen representations,
+fixed split, and pre-specified Layer-12 probing have been verified.
+Module D implementation, verification, ChatGPT research interpretation review,
+and the researcher learning checkpoint are complete. Its research protocol and
+results are accepted for project use; RQ2 is complete under the frozen protocol.
 
 The remaining experiments are planned and have not yet been completed:
 
-- Dataset-wide representation extraction and probing preparation
-- Basic Valence/Arousal probing
-- Layer-wise probing
 - Traditional audio-feature baseline
 - Confound and error analysis
 - Optional robustness/ablation experiments
 
-The authoritative Module A protocol is documented in
-[`docs/research_logs/module_a_data_and_representation_protocol.md`](docs/research_logs/module_a_data_and_representation_protocol.md).
+The authoritative research records are in [`docs/research_logs/`](docs/research_logs/).
+The latest record is
+[`Module D — Layer-wise Emotion Decodability Analysis`](docs/research_logs/module_d_layerwise_emotion_decodability_analysis.md).
 
 ## Evaluation
 
@@ -44,7 +44,9 @@ The authoritative Module A protocol is documented in
 - R²
 - Pearson correlation (r)
 
-Valence and Arousal will be evaluated separately.
+Valence and Arousal are evaluated separately. Module D reports point estimates
+from the fixed split with Train-only Ridge fitting and Validation-only alpha
+selection. Its primary result is the full depth trajectory, not a best-layer claim.
 
 ## Repository Structure
 
@@ -67,9 +69,18 @@ This project uses Python 3.10 with CUDA-enabled PyTorch and has been tested loca
 Work in progress.
 
 Current stage:
-Module A complete; preparing for representation extraction and probing setup.
+Module D finalized; RQ2 complete under the frozen protocol.
 
-No formal Valence/Arousal probing results are available yet.
+Both targets are linearly decodable at all 13 tested levels under the fixed
+protocol. Valence is comparatively stable after early gains; Arousal has a broad
+middle-depth high region followed by a late decline. Layer-12 Test values reuse
+the authoritative Module C evaluation and are not new untouched evidence.
+
+![Layer-wise Test R² trajectory](outputs/figures/module_d_stage1_test_r2_trajectory.png)
+
+Full numerical results: [`Module D table`](outputs/results/module_d_stage1_layerwise_results.csv).
+Implementation, commands, verification, and limitations:
+[`Module D technical report`](docs/codex_reports/module_d_stage1_layerwise_emotion_decodability_analysis.md).
 
 ## Scope
 

@@ -298,6 +298,8 @@ Do not commit private personal notes. Do not push large datasets, cached models,
 
 When starting a new ChatGPT or Codex conversation for a later Stage or Module, do not rely only on conversational memory. Recover project context from repository artifacts first.
 
+At a Module transition, Codex should generate a repository-grounded Markdown handoff under `handoffs/` for the researcher to paste into the new ChatGPT research conversation. A handoff is a local context-recovery aid, not a formal research artifact: `handoffs/` must remain excluded from Git, and handoff files must not be committed.
+
 At minimum, inspect:
 
 1. `docs/project_workflow.md`
