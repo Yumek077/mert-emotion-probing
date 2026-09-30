@@ -1,0 +1,61 @@
+{
+  "stage": "Module E Stage 2 pre-Test verification",
+  "created_utc": "2026-09-30T12:26:54.050307+00:00",
+  "inputs": {
+    "acoustic_cache": {
+      "path": "data/processed/deam_acoustic_51d.npz",
+      "size_bytes": 334750,
+      "sha256": "a737863c8c2bfb623448fe1d2d770e27206b9f42bee57faacf86ef739da0b6c4"
+    },
+    "stage1_diagnostics": {
+      "path": "outputs/results/module_e_stage1_acoustic_diagnostics.json",
+      "size_bytes": 14320,
+      "sha256": "31005dc1dccab681ddd6ca367ede08d165b80b6b5087f3dd9dcad196b3ad77b3"
+    },
+    "labels": {
+      "path": "data/raw/deam/verification/deam_item_mapping.csv",
+      "size_bytes": 354424,
+      "sha256": "b36f5a5c5dff6ccacaf0db28e9eae76a072a18654ac476c3dc4cc11e7c926ff7"
+    },
+    "fixed_split": {
+      "path": "data/metadata/deam_primary_split_seed42.csv",
+      "size_bytes": 19425,
+      "sha256": "edb62f433e95fe6d5e33302fff546ce34fa90e486834474ee27b0fea9d56140a"
+    },
+    "module_c_c3_unchanged": {
+      "path": "outputs/results/module_c_stage3_validation.json",
+      "size_bytes": 11086,
+      "sha256": "7ead01e78540d6508717b9ffff53c15bd974bd641c1cd409e36bb23b7cb02d4e"
+    },
+    "module_c_c4_unchanged": {
+      "path": "outputs/results/module_c_stage4_test.json",
+      "size_bytes": 9134,
+      "sha256": "8c94e4f2f852dcdb289dd73bd4532029f521e21dc0b83fe51f7d19bcb10d29fe"
+    }
+  },
+  "checks": {
+    "acoustic_cache_1744_by_51": true,
+    "sample_ids_exact_unique_population": true,
+    "split_counts_1221_262_261": true,
+    "split_roles_mutually_exclusive": true,
+    "targets_aligned_by_sample_id": true,
+    "row_order_independent": true,
+    "scaler_train_only": true,
+    "targets_not_standardized": true,
+    "ridge_cholesky_intercept_train_only": true,
+    "frozen_alpha_grid": true,
+    "selection_validation_r2_only": true,
+    "target_specific_selected_alphas": true,
+    "train_mean_baseline": true,
+    "validation_predictions_only": true,
+    "no_test_predictions_or_metrics": true,
+    "stage1_acoustic_representation_unchanged": true,
+    "mert_comparator_layer_12_unchanged": true,
+    "module_c_authoritative_files_unmodified": true,
+    "later_test_reproducible_from_frozen_inputs_and_selected_alpha": true,
+    "deterministic_repeat": true
+  },
+  "test_id_count_structural_only": 261,
+  "test_evaluation_performed": false,
+  "passed": true
+}

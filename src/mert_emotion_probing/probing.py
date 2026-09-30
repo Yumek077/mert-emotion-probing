@@ -450,16 +450,18 @@ def fit_select_validate(
     data: TrainValidationData,
     *,
     alpha_grid: tuple[float, ...] = ALPHA_GRID,
+    expected_dimension: int = EXPECTED_HIDDEN_DIMENSION,
+    include_candidate_metrics: bool = False,
 ) -> tuple[dict[str, Any], np.ndarray, np.ndarray]:
     """Fit Train-only Ridge candidates and select by Validation R-squared."""
 
     if tuple(alpha_grid) != ALPHA_GRID:
         raise ProtocolViolation("Alpha grid differs from the frozen Stage C2 grid")
     expected_shapes = {
-        "x_train": (EXPECTED_SPLIT_COUNTS["train"], EXPECTED_HIDDEN_DIMENSION),
+        "x_train": (EXPECTED_SPLIT_COUNTS["train"], expected_dimension),
         "x_validation": (
             EXPECTED_SPLIT_COUNTS["validation"],
-            EXPECTED_HIDDEN_DIMENSION,
+            expected_dimension,
         ),
         "y_train": (EXPECTED_SPLIT_COUNTS["train"],),
         "y_validation": (EXPECTED_SPLIT_COUNTS["validation"],),
@@ -494,6 +496,7 @@ def fit_select_validate(
         raise RuntimeError("Scaler variance does not match the Train-only feature variance")
 
     candidate_rows: list[dict[str, float]] = []
+    candidate_metrics: list[dict[str, Any]] = []
     predictions_by_alpha: dict[float, np.ndarray] = {}
     for alpha in alpha_grid:
         model = Ridge(alpha=float(alpha), solver="cholesky")
@@ -503,6 +506,10 @@ def fit_select_validate(
             raise RuntimeError(f"Non-finite Validation prediction for alpha={alpha}")
         score = float(r2_score(data.y_validation, prediction))
         candidate_rows.append({"alpha": float(alpha), "validation_r2": score})
+        if include_candidate_metrics:
+            candidate_metrics.append(
+                {"alpha": float(alpha), **regression_metrics(data.y_validation, prediction)}
+            )
         predictions_by_alpha[float(alpha)] = prediction.copy()
 
     selected_row, best_r2, exact_ties = select_candidate_by_validation_r2(
@@ -556,6 +563,8 @@ def fit_select_validate(
             "fit_sample_count_per_candidate": int(len(data.train_ids)),
         },
     }
+    if include_candidate_metrics:
+        result["candidate_validation_metrics"] = candidate_metrics
     return result, selected_prediction.copy(), baseline_prediction
 
 

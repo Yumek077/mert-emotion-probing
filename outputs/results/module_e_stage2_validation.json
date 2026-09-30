@@ -1,0 +1,489 @@
+{
+  "stage": "Module E Stage 2",
+  "created_utc": "2026-09-30T12:26:54.050307+00:00",
+  "protocol": {
+    "representation": "frozen_conventional_acoustic_51d",
+    "mert_comparator": "transformer_layer_12",
+    "input_dimension": 51,
+    "targets": {
+      "valence": "valence_mean",
+      "arousal": "arousal_mean"
+    },
+    "probe": "Ridge Regression",
+    "ridge_solver": "cholesky",
+    "fit_intercept": true,
+    "alpha_grid": [
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0,
+      1000.0,
+      10000.0
+    ],
+    "selection": "maximum_validation_r2_exact_tie_larger_alpha",
+    "input_scaler": "StandardScaler fit on Train only",
+    "targets_standardized": false,
+    "final_fit_policy": "Train only; deferred to Test stage",
+    "baseline": "constant Train target mean"
+  },
+  "inputs": {
+    "acoustic_cache": {
+      "path": "data/processed/deam_acoustic_51d.npz",
+      "size_bytes": 334750,
+      "sha256": "a737863c8c2bfb623448fe1d2d770e27206b9f42bee57faacf86ef739da0b6c4"
+    },
+    "stage1_diagnostics": {
+      "path": "outputs/results/module_e_stage1_acoustic_diagnostics.json",
+      "size_bytes": 14320,
+      "sha256": "31005dc1dccab681ddd6ca367ede08d165b80b6b5087f3dd9dcad196b3ad77b3"
+    },
+    "labels": {
+      "path": "data/raw/deam/verification/deam_item_mapping.csv",
+      "size_bytes": 354424,
+      "sha256": "b36f5a5c5dff6ccacaf0db28e9eae76a072a18654ac476c3dc4cc11e7c926ff7"
+    },
+    "fixed_split": {
+      "path": "data/metadata/deam_primary_split_seed42.csv",
+      "size_bytes": 19425,
+      "sha256": "edb62f433e95fe6d5e33302fff546ce34fa90e486834474ee27b0fea9d56140a"
+    },
+    "module_c_c3_unchanged": {
+      "path": "outputs/results/module_c_stage3_validation.json",
+      "size_bytes": 11086,
+      "sha256": "7ead01e78540d6508717b9ffff53c15bd974bd641c1cd409e36bb23b7cb02d4e"
+    },
+    "module_c_c4_unchanged": {
+      "path": "outputs/results/module_c_stage4_test.json",
+      "size_bytes": 9134,
+      "sha256": "8c94e4f2f852dcdb289dd73bd4532029f521e21dc0b83fe51f7d19bcb10d29fe"
+    }
+  },
+  "data_assembly": {
+    "cache_shape": [
+      1744,
+      51
+    ],
+    "feature_names": [
+      "tempo_bpm",
+      "rms_mean",
+      "rms_std",
+      "mfcc_1_mean",
+      "mfcc_1_std",
+      "mfcc_2_mean",
+      "mfcc_2_std",
+      "mfcc_3_mean",
+      "mfcc_3_std",
+      "mfcc_4_mean",
+      "mfcc_4_std",
+      "mfcc_5_mean",
+      "mfcc_5_std",
+      "mfcc_6_mean",
+      "mfcc_6_std",
+      "mfcc_7_mean",
+      "mfcc_7_std",
+      "mfcc_8_mean",
+      "mfcc_8_std",
+      "mfcc_9_mean",
+      "mfcc_9_std",
+      "mfcc_10_mean",
+      "mfcc_10_std",
+      "mfcc_11_mean",
+      "mfcc_11_std",
+      "mfcc_12_mean",
+      "mfcc_12_std",
+      "mfcc_13_mean",
+      "mfcc_13_std",
+      "mfcc_14_mean",
+      "mfcc_14_std",
+      "mfcc_15_mean",
+      "mfcc_15_std",
+      "mfcc_16_mean",
+      "mfcc_16_std",
+      "mfcc_17_mean",
+      "mfcc_17_std",
+      "mfcc_18_mean",
+      "mfcc_18_std",
+      "mfcc_19_mean",
+      "mfcc_19_std",
+      "mfcc_20_mean",
+      "mfcc_20_std",
+      "spectral_centroid_mean",
+      "spectral_centroid_std",
+      "spectral_bandwidth_mean",
+      "spectral_bandwidth_std",
+      "spectral_rolloff_mean",
+      "spectral_rolloff_std",
+      "zero_crossing_rate_mean",
+      "zero_crossing_rate_std"
+    ],
+    "sample_ids_unique": true,
+    "canonical_id_sets_equal": true,
+    "row_order_invariance_verified": true,
+    "target_alignment_by_sample_id": true,
+    "split_counts": {
+      "train": 1221,
+      "validation": 262,
+      "test": 261
+    },
+    "label_checks": {
+      "label_table_rows": 1802,
+      "label_table_unique_ids": 1802,
+      "primary_label_rows": 1744,
+      "excluded_full_song_rows": 58,
+      "target_columns": [
+        "valence_mean",
+        "arousal_mean"
+      ],
+      "primary_targets_complete_and_finite": true
+    }
+  },
+  "targets": {
+    "valence": {
+      "alpha_grid": [
+        0.0001,
+        0.001,
+        0.01,
+        0.1,
+        1.0,
+        10.0,
+        100.0,
+        1000.0,
+        10000.0
+      ],
+      "selection_metric": "validation_r2",
+      "exact_tie_rule": "choose_larger_alpha",
+      "candidate_validation_r2": [
+        {
+          "alpha": 0.0001,
+          "validation_r2": 0.372391287927901
+        },
+        {
+          "alpha": 0.001,
+          "validation_r2": 0.37239224164088836
+        },
+        {
+          "alpha": 0.01,
+          "validation_r2": 0.3724017567780319
+        },
+        {
+          "alpha": 0.1,
+          "validation_r2": 0.37249477042900736
+        },
+        {
+          "alpha": 1.0,
+          "validation_r2": 0.3732591916285346
+        },
+        {
+          "alpha": 10.0,
+          "validation_r2": 0.37657196425088046
+        },
+        {
+          "alpha": 100.0,
+          "validation_r2": 0.38393120790370183
+        },
+        {
+          "alpha": 1000.0,
+          "validation_r2": 0.37321996386182477
+        },
+        {
+          "alpha": 10000.0,
+          "validation_r2": 0.25386457117987227
+        }
+      ],
+      "best_validation_r2": 0.38393120790370183,
+      "exact_tie_count": 1,
+      "exact_tied_alphas": [
+        100.0
+      ],
+      "selected_alpha": 100.0,
+      "selected_validation_metrics": {
+        "mae": 0.7216854511087386,
+        "r2": 0.38393120790370183,
+        "pearson_r": 0.6207782167155569,
+        "pearson_r_status": "defined"
+      },
+      "baseline": {
+        "definition": "constant_prediction_from_train_target_mean",
+        "train_target_mean": 4.894692874692875,
+        "validation_metrics": {
+          "mae": 0.9248255715812967,
+          "r2": -4.606428511388927e-05,
+          "pearson_r": null,
+          "pearson_r_status": "undefined_constant_prediction"
+        },
+        "pearson_r_explanation": "Undefined because the mean baseline has zero prediction variance; serialized as null rather than 0."
+      },
+      "standardization": {
+        "input_scaler": "sklearn.preprocessing.StandardScaler",
+        "fit_split": "train",
+        "fit_sample_count": 1221,
+        "transformed_splits": [
+          "train",
+          "validation"
+        ],
+        "target_standardized": false,
+        "train_mean_verified": true,
+        "train_variance_verified": true
+      },
+      "ridge": {
+        "implementation": "sklearn.linear_model.Ridge",
+        "solver": "cholesky",
+        "fit_intercept": true,
+        "fit_split": "train",
+        "fit_sample_count_per_candidate": 1221
+      },
+      "candidate_validation_metrics": [
+        {
+          "alpha": 0.0001,
+          "mae": 0.7276959848163745,
+          "r2": 0.372391287927901,
+          "pearson_r": 0.615285054950446,
+          "pearson_r_status": "defined"
+        },
+        {
+          "alpha": 0.001,
+          "mae": 0.7276958160794337,
+          "r2": 0.37239224164088836,
+          "pearson_r": 0.6152855358246632,
+          "pearson_r_status": "defined"
+        },
+        {
+          "alpha": 0.01,
+          "mae": 0.727694127678408,
+          "r2": 0.3724017567780319,
+          "pearson_r": 0.6152903326224866,
+          "pearson_r_status": "defined"
+        },
+        {
+          "alpha": 0.1,
+          "mae": 0.727677143651124,
+          "r2": 0.37249477042900736,
+          "pearson_r": 0.6153371406801967,
+          "pearson_r_status": "defined"
+        },
+        {
+          "alpha": 1.0,
+          "mae": 0.7275352052468383,
+          "r2": 0.3732591916285346,
+          "pearson_r": 0.6157160802825006,
+          "pearson_r_status": "defined"
+        },
+        {
+          "alpha": 10.0,
+          "mae": 0.7265359741452712,
+          "r2": 0.37657196425088046,
+          "pearson_r": 0.6172804728538539,
+          "pearson_r_status": "defined"
+        },
+        {
+          "alpha": 100.0,
+          "mae": 0.7216854511087386,
+          "r2": 0.38393120790370183,
+          "pearson_r": 0.6207782167155569,
+          "pearson_r_status": "defined"
+        },
+        {
+          "alpha": 1000.0,
+          "mae": 0.7227767497751874,
+          "r2": 0.37321996386182477,
+          "pearson_r": 0.6182424930744027,
+          "pearson_r_status": "defined"
+        },
+        {
+          "alpha": 10000.0,
+          "mae": 0.7851683965253438,
+          "r2": 0.25386457117987227,
+          "pearson_r": 0.591643227526322,
+          "pearson_r_status": "defined"
+        }
+      ]
+    },
+    "arousal": {
+      "alpha_grid": [
+        0.0001,
+        0.001,
+        0.01,
+        0.1,
+        1.0,
+        10.0,
+        100.0,
+        1000.0,
+        10000.0
+      ],
+      "selection_metric": "validation_r2",
+      "exact_tie_rule": "choose_larger_alpha",
+      "candidate_validation_r2": [
+        {
+          "alpha": 0.0001,
+          "validation_r2": 0.3270966286821181
+        },
+        {
+          "alpha": 0.001,
+          "validation_r2": 0.32709782684323674
+        },
+        {
+          "alpha": 0.01,
+          "validation_r2": 0.327109776557447
+        },
+        {
+          "alpha": 0.1,
+          "validation_r2": 0.32722616992392484
+        },
+        {
+          "alpha": 1.0,
+          "validation_r2": 0.3281469252283531
+        },
+        {
+          "alpha": 10.0,
+          "validation_r2": 0.33055323910891876
+        },
+        {
+          "alpha": 100.0,
+          "validation_r2": 0.3240642900643782
+        },
+        {
+          "alpha": 1000.0,
+          "validation_r2": 0.3060210729481473
+        },
+        {
+          "alpha": 10000.0,
+          "validation_r2": 0.22116985820586
+        }
+      ],
+      "best_validation_r2": 0.33055323910891876,
+      "exact_tie_count": 1,
+      "exact_tied_alphas": [
+        10.0
+      ],
+      "selected_alpha": 10.0,
+      "selected_validation_metrics": {
+        "mae": 0.7942424596487055,
+        "r2": 0.33055323910891876,
+        "pearson_r": 0.5849019817429237,
+        "pearson_r_status": "defined"
+      },
+      "baseline": {
+        "definition": "constant_prediction_from_train_target_mean",
+        "train_target_mean": 4.816953316953317,
+        "validation_metrics": {
+          "mae": 1.0126818838269218,
+          "r2": -1.8368567474613684e-05,
+          "pearson_r": null,
+          "pearson_r_status": "undefined_constant_prediction"
+        },
+        "pearson_r_explanation": "Undefined because the mean baseline has zero prediction variance; serialized as null rather than 0."
+      },
+      "standardization": {
+        "input_scaler": "sklearn.preprocessing.StandardScaler",
+        "fit_split": "train",
+        "fit_sample_count": 1221,
+        "transformed_splits": [
+          "train",
+          "validation"
+        ],
+        "target_standardized": false,
+        "train_mean_verified": true,
+        "train_variance_verified": true
+      },
+      "ridge": {
+        "implementation": "sklearn.linear_model.Ridge",
+        "solver": "cholesky",
+        "fit_intercept": true,
+        "fit_split": "train",
+        "fit_sample_count_per_candidate": 1221
+      },
+      "candidate_validation_metrics": [
+        {
+          "alpha": 0.0001,
+          "mae": 0.7948003882812463,
+          "r2": 0.3270966286821181,
+          "pearson_r": 0.5853061676924299,
+          "pearson_r_status": "defined"
+        },
+        {
+          "alpha": 0.001,
+          "mae": 0.7948000107510584,
+          "r2": 0.32709782684323674,
+          "pearson_r": 0.585306472564885,
+          "pearson_r_status": "defined"
+        },
+        {
+          "alpha": 0.01,
+          "mae": 0.7947962412407393,
+          "r2": 0.327109776557447,
+          "pearson_r": 0.585309507781044,
+          "pearson_r_status": "defined"
+        },
+        {
+          "alpha": 0.1,
+          "mae": 0.7947591138698668,
+          "r2": 0.32722616992392484,
+          "pearson_r": 0.5853385483752309,
+          "pearson_r_status": "defined"
+        },
+        {
+          "alpha": 1.0,
+          "mae": 0.7944523499651567,
+          "r2": 0.3281469252283531,
+          "pearson_r": 0.5855282400358195,
+          "pearson_r_status": "defined"
+        },
+        {
+          "alpha": 10.0,
+          "mae": 0.7942424596487055,
+          "r2": 0.33055323910891876,
+          "pearson_r": 0.5849019817429237,
+          "pearson_r_status": "defined"
+        },
+        {
+          "alpha": 100.0,
+          "mae": 0.798770148746069,
+          "r2": 0.3240642900643782,
+          "pearson_r": 0.5742650876767765,
+          "pearson_r_status": "defined"
+        },
+        {
+          "alpha": 1000.0,
+          "mae": 0.8091300902936202,
+          "r2": 0.3060210729481473,
+          "pearson_r": 0.5535217055197936,
+          "pearson_r_status": "defined"
+        },
+        {
+          "alpha": 10000.0,
+          "mae": 0.8782193545002622,
+          "r2": 0.22116985820586,
+          "pearson_r": 0.5200000308684865,
+          "pearson_r_status": "defined"
+        }
+      ]
+    }
+  },
+  "determinism": {
+    "valence": {
+      "passed": true,
+      "selected_alpha_equal": true,
+      "candidate_results_equal": true,
+      "selected_metrics_equal": true,
+      "predictions_exactly_equal": true
+    },
+    "arousal": {
+      "passed": true,
+      "selected_alpha_equal": true,
+      "candidate_results_equal": true,
+      "selected_metrics_equal": true,
+      "predictions_exactly_equal": true
+    }
+  },
+  "validation_prediction_artifact": {
+    "path": "outputs/results/module_e_stage2_validation_predictions.csv",
+    "rows": 524,
+    "splits_present": [
+      "validation"
+    ],
+    "contains_test_ids": false
+  }
+}
