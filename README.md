@@ -30,14 +30,14 @@ Module D implementation, verification, ChatGPT research interpretation review,
 and the researcher learning checkpoint are complete. Its research protocol and
 results are accepted for project use; RQ2 is complete under the frozen protocol.
 
-Module E / operational RQ3 is complete under the frozen protocol. The acoustic
+Module E / operational RQ3 is finalized under the frozen protocol. The acoustic
 baseline and the authoritative Module C Layer-12 results have been compared on
-the same fixed Test split; final researcher learning and interpretation review
-are next.
+the same fixed Test split; the researcher learning checkpoint material and final
+interpretation review are complete.
 
 The remaining research is:
 
-- Module F — Acoustic Correlate / Confound & Error Analysis / RQ4: design after the Module E checkpoint; core focus is Tempo/Energy. It has not started.
+- Module F — Acoustic Correlate / Confound & Error Analysis / RQ4: design is next; core focus is Tempo/Energy. It has not started.
 - Final Synthesis: connect RQ1–RQ4. Optional extensions remain deferred until the core evidence chain is complete.
 
 The authoritative research records are in [`docs/research_logs/`](docs/research_logs/).
@@ -75,8 +75,9 @@ This project uses Python 3.10 with CUDA-enabled PyTorch and has been tested loca
 Work in progress.
 
 Current stage:
-Module E / RQ3 complete under the frozen protocol. The next step is the Module E
-researcher learning checkpoint and interpretation review, followed by Module F design.
+Module E / RQ3 finalized under the frozen protocol, including the researcher
+learning checkpoint material and final interpretation review. The next research
+task is Module F / RQ4 design; no Module F experiment has started.
 
 The pre-specified MERT Layer-12 representation has lower Test MAE and higher
 Test R²/Pearson r than the frozen 51-D conventional acoustic baseline for both

@@ -6,7 +6,7 @@ How does Valence and Arousal decodability from the pre-specified MERT Layer-12 r
 
 The Module D Test trajectory does not select a new MERT comparator. Layer 12 remains frozen. The controlled change is representation type; both branches use the same 1,744 primary DEAM excerpts, Sample IDs, original-scale static targets, 1,221/262/261 Train/Validation/Test split, Train-only scaling and Ridge framework. The 58 full songs remain excluded. Identity joins never depend on row order.
 
-**Module E / operational RQ3 is complete under the frozen protocol.** All three implementation Stages passed. The researcher approved Stage 1/2 review and explicitly authorized the Stage 3 Test gate. The researcher learning checkpoint and interpretation review of these final results are next; Module F / RQ4 has not started.
+**Module E / operational RQ3 is finalized under the frozen protocol.** All three implementation Stages passed researcher review. The researcher learning checkpoint material and final interpretation review were completed on 2026-10-01. The review confirmed that the reported numbers match the authoritative artifacts and that the conclusion, reused evidence provenance, prior Test exposure and interpretation boundaries are accurate. The Chinese learning note remains private/local and excluded from Git. No experiment, frozen protocol or result changed. Module F / RQ4 has not started; its design is the next research task.
 
 ## Stage 1 — Acoustic extraction and validation (complete)
 
@@ -70,4 +70,4 @@ RMS remains a decoded-amplitude signal descriptor rather than calibrated percept
 
 ## Inputs to future RQ4
 
-Module E supplies the frozen acoustic table, extraction diagnostics, acoustic/MERT predictions and descriptive RQ3 comparison. Future Module F will examine how observed decoding is associated with simple acoustic correlates, particularly Tempo and Energy, after the researcher learning checkpoint and design review. No Tempo/Energy-target, prediction, residual or confound association was performed in Module E Stage 3. **RQ3 is complete; RQ4 has not started.**
+Module E supplies the frozen acoustic table, extraction diagnostics, acoustic/MERT predictions and descriptive RQ3 comparison. Future Module F will examine how observed decoding is associated with simple acoustic correlates, particularly Tempo and Energy, after its own design review. No Tempo/Energy-target, prediction, residual or confound association was performed in Module E or during its final learning checkpoint. **RQ3 is finalized; RQ4 has not started. The next step is Module F design, not experiment execution.**
