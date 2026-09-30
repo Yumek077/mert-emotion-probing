@@ -9,6 +9,8 @@ This project investigates whether continuous musical emotion information can be 
 3. Do MERT representations provide emotion-related information beyond traditional low-level audio features?
 4. To what extent might prediction performance be explained by confounding factors such as tempo and energy?
 
+The questions above preserve the project's conceptual directions. The [original README](https://github.com/Yumek077/mert-emotion-probing/blob/b8955d5/README.md) records its initial intentions; the frozen [Post-Module-D Research Roadmap](docs/research_roadmap_after_module_d.md) defines the refined operational RQ3/RQ4 and scope for Modules E/F.
+
 ## Method Overview
 
 DEAM Audio
@@ -30,9 +32,9 @@ results are accepted for project use; RQ2 is complete under the frozen protocol.
 
 The remaining experiments are planned and have not yet been completed:
 
-- Traditional audio-feature baseline
-- Confound and error analysis
-- Optional robustness/ablation experiments
+- Module E — Conventional Acoustic Baseline / RQ3: design next; primary MERT comparator remains Layer 12.
+- Module F — Acoustic Correlate / Confound & Error Analysis / RQ4: design after E; core focus is Tempo/Energy.
+- Final Synthesis: connect RQ1–RQ4. Optional extensions remain deferred until the core evidence chain is complete.
 
 The authoritative research records are in [`docs/research_logs/`](docs/research_logs/).
 The latest record is
@@ -70,6 +72,7 @@ Work in progress.
 
 Current stage:
 Module D finalized; RQ2 complete under the frozen protocol.
+Post-Module-D roadmap frozen; next task is Module E design. No Module E experiment has been run.
 
 Both targets are linearly decodable at all 13 tested levels under the fixed
 protocol. Valence is comparatively stable after early gains; Arousal has a broad

@@ -308,6 +308,8 @@ At minimum, inspect:
 4. current Stage reports when continuing an unfinished Module
 5. relevant source and configuration files only as needed
 
+For post-Module-D work, also read the [original README research intentions](https://github.com/Yumek077/mert-emotion-probing/blob/b8955d5/README.md), completed Module A–D logs in `docs/research_logs/`, and the authoritative [Post-Module-D Research Roadmap](research_roadmap_after_module_d.md). Preserve the original intentions and completed evidence; the roadmap refines the remaining RQ3/RQ4 route. The next objective is **Module E design / RQ3**, not experiment execution; its acoustic feature recipe remains to be decided.
+
 Before new implementation, restore:
 
 - the overall research question;
