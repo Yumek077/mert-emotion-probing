@@ -1,0 +1,537 @@
+{
+  "stage": "Module E Stage 3",
+  "created_utc": "2026-09-30T13:41:14.287910+00:00",
+  "frozen_configuration": {
+    "representation": "conventional_acoustic_51d",
+    "input_dimension": 51,
+    "feature_names": [
+      "tempo_bpm",
+      "rms_mean",
+      "rms_std",
+      "mfcc_1_mean",
+      "mfcc_1_std",
+      "mfcc_2_mean",
+      "mfcc_2_std",
+      "mfcc_3_mean",
+      "mfcc_3_std",
+      "mfcc_4_mean",
+      "mfcc_4_std",
+      "mfcc_5_mean",
+      "mfcc_5_std",
+      "mfcc_6_mean",
+      "mfcc_6_std",
+      "mfcc_7_mean",
+      "mfcc_7_std",
+      "mfcc_8_mean",
+      "mfcc_8_std",
+      "mfcc_9_mean",
+      "mfcc_9_std",
+      "mfcc_10_mean",
+      "mfcc_10_std",
+      "mfcc_11_mean",
+      "mfcc_11_std",
+      "mfcc_12_mean",
+      "mfcc_12_std",
+      "mfcc_13_mean",
+      "mfcc_13_std",
+      "mfcc_14_mean",
+      "mfcc_14_std",
+      "mfcc_15_mean",
+      "mfcc_15_std",
+      "mfcc_16_mean",
+      "mfcc_16_std",
+      "mfcc_17_mean",
+      "mfcc_17_std",
+      "mfcc_18_mean",
+      "mfcc_18_std",
+      "mfcc_19_mean",
+      "mfcc_19_std",
+      "mfcc_20_mean",
+      "mfcc_20_std",
+      "spectral_centroid_mean",
+      "spectral_centroid_std",
+      "spectral_bandwidth_mean",
+      "spectral_bandwidth_std",
+      "spectral_rolloff_mean",
+      "spectral_rolloff_std",
+      "zero_crossing_rate_mean",
+      "zero_crossing_rate_std"
+    ],
+    "alphas": {
+      "valence": 100.0,
+      "arousal": 10.0
+    },
+    "probe": "Ridge Regression",
+    "ridge_solver": "cholesky",
+    "fit_intercept": true,
+    "input_scaler": "StandardScaler fit on Train only",
+    "target_standardization": false,
+    "final_refit_training_split": "train_only",
+    "validation_in_final_refit": false,
+    "metrics": [
+      "mae",
+      "r2",
+      "pearson_r"
+    ],
+    "mert_comparator": "transformer_layer_12"
+  },
+  "provenance": {
+    "stage2_results": {
+      "path": "outputs/results/module_e_stage2_validation.json",
+      "size_bytes": 13943,
+      "sha256": "9e161097a11929b7837677f0608d5f1f418c78b0feaf16b257c6db37db1da7ba"
+    },
+    "stage2_validation_predictions": {
+      "path": "outputs/results/module_e_stage2_validation_predictions.csv",
+      "size_bytes": 42417,
+      "sha256": "57a17d6c6bb81f40697fe92c6a1f21296a9ca6243e46101fe0416bcda96a8c01"
+    },
+    "stage2_pre_test_verification": {
+      "path": "outputs/results/module_e_stage2_pre_test_verification.json",
+      "size_bytes": 2401,
+      "sha256": "4f1f679707f24a80295c04628dfcf5317a3323ded140d44dab325aa2adbbcf54"
+    },
+    "module_c_authoritative_results": {
+      "path": "outputs/results/module_c_stage4_test.json",
+      "size_bytes": 9134,
+      "sha256": "8c94e4f2f852dcdb289dd73bd4532029f521e21dc0b83fe51f7d19bcb10d29fe"
+    },
+    "module_c_authoritative_predictions": {
+      "path": "outputs/results/module_c_stage4_test_predictions.csv",
+      "size_bytes": 52551,
+      "sha256": "8e61fffcc3695be5a74173887498a10e2b881724773ccf362c21cc6a73bb45fa"
+    },
+    "inputs": {
+      "acoustic_cache": {
+        "path": "data/processed/deam_acoustic_51d.npz",
+        "size_bytes": 334750,
+        "sha256": "a737863c8c2bfb623448fe1d2d770e27206b9f42bee57faacf86ef739da0b6c4"
+      },
+      "stage1_diagnostics": {
+        "path": "outputs/results/module_e_stage1_acoustic_diagnostics.json",
+        "size_bytes": 14320,
+        "sha256": "31005dc1dccab681ddd6ca367ede08d165b80b6b5087f3dd9dcad196b3ad77b3"
+      },
+      "labels": {
+        "path": "data/raw/deam/verification/deam_item_mapping.csv",
+        "size_bytes": 354424,
+        "sha256": "b36f5a5c5dff6ccacaf0db28e9eae76a072a18654ac476c3dc4cc11e7c926ff7"
+      },
+      "fixed_split": {
+        "path": "data/metadata/deam_primary_split_seed42.csv",
+        "size_bytes": 19425,
+        "sha256": "edb62f433e95fe6d5e33302fff546ce34fa90e486834474ee27b0fea9d56140a"
+      },
+      "module_c_c3_unchanged": {
+        "path": "outputs/results/module_c_stage3_validation.json",
+        "size_bytes": 11086,
+        "sha256": "7ead01e78540d6508717b9ffff53c15bd974bd641c1cd409e36bb23b7cb02d4e"
+      },
+      "module_c_c4_unchanged": {
+        "path": "outputs/results/module_c_stage4_test.json",
+        "size_bytes": 9134,
+        "sha256": "8c94e4f2f852dcdb289dd73bd4532029f521e21dc0b83fe51f7d19bcb10d29fe"
+      }
+    },
+    "evaluation_code": [
+      {
+        "path": "scripts/run_acoustic_test_evaluation.py",
+        "size_bytes": 15269,
+        "sha256": "21720c8f681c8a21abc3ff2b3c99dcdd325d27713467004b45d1f58bafce9fd3"
+      },
+      {
+        "path": "src/mert_emotion_probing/probing.py",
+        "size_bytes": 29600,
+        "sha256": "e2e9d607c953258bc7aec5ace578f9639f90aa7ea427f57dd7e014a86cadccb9"
+      }
+    ]
+  },
+  "pre_test_gate": {
+    "stage2_review_authorized_by_researcher": true,
+    "stage2_artifacts_unchanged": true,
+    "stage2_input_hashes_and_sizes_unchanged": true,
+    "frozen_alphas_read_from_stage2": {
+      "valence": 100.0,
+      "arousal": 10.0
+    },
+    "cache_shape": [
+      1744,
+      51
+    ],
+    "split_counts": {
+      "train": 1221,
+      "validation": 262,
+      "test": 261
+    },
+    "test_ids_exact_unique": 261,
+    "split_overlap_count": 0,
+    "module_c_metrics_verified_from_saved_predictions": true,
+    "module_c_artifacts_unchanged": true,
+    "prior_acoustic_test_artifacts_present": false,
+    "passed": true
+  },
+  "targets": {
+    "valence": {
+      "frozen_alpha": 100.0,
+      "test_metrics": {
+        "mae": 0.7704990495578529,
+        "r2": 0.36814982283192577,
+        "pearson_r": 0.6097082744706708,
+        "pearson_r_status": "defined"
+      },
+      "baseline": {
+        "definition": "constant_prediction_from_train_target_mean",
+        "train_target_mean": 4.894692874692875,
+        "test_metrics": {
+          "mae": 1.002563190149397,
+          "r2": -0.003113806836503974,
+          "pearson_r": null,
+          "pearson_r_status": "undefined_constant_prediction"
+        },
+        "pearson_r_explanation": "Undefined because the mean baseline has zero prediction variance; serialized as null rather than 0."
+      },
+      "standardization": {
+        "input_scaler": "sklearn.preprocessing.StandardScaler",
+        "fit_split": "train",
+        "fit_sample_count": 1221,
+        "transformed_splits": [
+          "train",
+          "test"
+        ],
+        "validation_in_final_refit": false,
+        "target_standardized": false,
+        "train_mean_verified": true,
+        "train_variance_verified": true,
+        "fitted_feature_mean": [
+          120.8839346427199,
+          0.11392537091784698,
+          0.041418755887324916,
+          122.20296368844971,
+          28.94370900871908,
+          -3.603877922905995,
+          20.943110272691058,
+          26.140633435887846,
+          14.478333103373634,
+          4.900702390590962,
+          12.171423345389277,
+          7.029486698507317,
+          10.48526601260261,
+          -1.1418207737942891,
+          9.581128390278609,
+          3.7407762380743996,
+          8.870176998735158,
+          -3.7078710533640393,
+          8.729085438765042,
+          1.3395396962329589,
+          8.442829245333785,
+          -3.211097094170859,
+          8.262141371437217,
+          -0.15229079239932328,
+          8.062687445038367,
+          -3.4147549401125876,
+          7.8843220676387755,
+          -1.2791443017738917,
+          7.678364856042011,
+          -3.6713587035460096,
+          7.591998368379622,
+          -1.1507579607788803,
+          7.391879875087816,
+          -2.9896786521600993,
+          7.406803994565396,
+          -1.609751639266046,
+          7.387548401549056,
+          -2.7274910983057747,
+          7.516450435191661,
+          -1.5906513386957475,
+          7.6786681646992205,
+          -2.912525305684647,
+          7.81018767349062,
+          1849.435285563551,
+          626.4750531452,
+          2111.932025456409,
+          451.0659750579909,
+          3807.7892356079,
+          1395.5857011887208,
+          0.07470804660212642,
+          0.037558860528793106
+        ],
+        "fitted_feature_variance": [
+          427.82225047147386,
+          0.004301947372717488,
+          0.0005298908079312358,
+          1435.691090321806,
+          102.13315926215058,
+          724.5777503451907,
+          51.83523374553538,
+          287.70386277589387,
+          20.80418752705701,
+          126.56399029542744,
+          12.857018572292317,
+          141.16267751424883,
+          10.016130888926279,
+          69.28132604529998,
+          6.826817131788397,
+          66.0025053208055,
+          5.636817580261807,
+          62.41024853668812,
+          5.556518816260913,
+          50.79431633632633,
+          4.758456257446745,
+          33.64588313428735,
+          4.62451291256683,
+          43.48859096990793,
+          4.72079493667605,
+          32.10134801916457,
+          4.520227031260344,
+          26.691303282746617,
+          4.322151608913693,
+          23.82062320473096,
+          4.363865719526136,
+          23.69942890796527,
+          3.6886838879579904,
+          21.498757814666963,
+          3.9937466920702613,
+          20.018589281123834,
+          4.045717936717253,
+          17.048668633601253,
+          4.667883750616691,
+          17.902354744675844,
+          5.321043887452918,
+          18.74464173283221,
+          6.24321656671627,
+          496449.1081214734,
+          103388.44914865831,
+          404615.6119701389,
+          38962.34421966458,
+          2596052.5910787205,
+          463851.9349620931,
+          0.0012001114502873773,
+          0.000495889132559661
+        ]
+      },
+      "ridge": {
+        "implementation": "sklearn.linear_model.Ridge",
+        "solver": "cholesky",
+        "fit_intercept": true,
+        "fit_split": "train",
+        "fit_sample_count": 1221
+      }
+    },
+    "arousal": {
+      "frozen_alpha": 10.0,
+      "test_metrics": {
+        "mae": 0.8604290900772402,
+        "r2": 0.3741616428451243,
+        "pearson_r": 0.6117927498285562,
+        "pearson_r_status": "defined"
+      },
+      "baseline": {
+        "definition": "constant_prediction_from_train_target_mean",
+        "train_target_mean": 4.816953316953317,
+        "test_metrics": {
+          "mae": 1.1319956319956321,
+          "r2": -0.0003201332836952897,
+          "pearson_r": null,
+          "pearson_r_status": "undefined_constant_prediction"
+        },
+        "pearson_r_explanation": "Undefined because the mean baseline has zero prediction variance; serialized as null rather than 0."
+      },
+      "standardization": {
+        "input_scaler": "sklearn.preprocessing.StandardScaler",
+        "fit_split": "train",
+        "fit_sample_count": 1221,
+        "transformed_splits": [
+          "train",
+          "test"
+        ],
+        "validation_in_final_refit": false,
+        "target_standardized": false,
+        "train_mean_verified": true,
+        "train_variance_verified": true,
+        "fitted_feature_mean": [
+          120.8839346427199,
+          0.11392537091784698,
+          0.041418755887324916,
+          122.20296368844971,
+          28.94370900871908,
+          -3.603877922905995,
+          20.943110272691058,
+          26.140633435887846,
+          14.478333103373634,
+          4.900702390590962,
+          12.171423345389277,
+          7.029486698507317,
+          10.48526601260261,
+          -1.1418207737942891,
+          9.581128390278609,
+          3.7407762380743996,
+          8.870176998735158,
+          -3.7078710533640393,
+          8.729085438765042,
+          1.3395396962329589,
+          8.442829245333785,
+          -3.211097094170859,
+          8.262141371437217,
+          -0.15229079239932328,
+          8.062687445038367,
+          -3.4147549401125876,
+          7.8843220676387755,
+          -1.2791443017738917,
+          7.678364856042011,
+          -3.6713587035460096,
+          7.591998368379622,
+          -1.1507579607788803,
+          7.391879875087816,
+          -2.9896786521600993,
+          7.406803994565396,
+          -1.609751639266046,
+          7.387548401549056,
+          -2.7274910983057747,
+          7.516450435191661,
+          -1.5906513386957475,
+          7.6786681646992205,
+          -2.912525305684647,
+          7.81018767349062,
+          1849.435285563551,
+          626.4750531452,
+          2111.932025456409,
+          451.0659750579909,
+          3807.7892356079,
+          1395.5857011887208,
+          0.07470804660212642,
+          0.037558860528793106
+        ],
+        "fitted_feature_variance": [
+          427.82225047147386,
+          0.004301947372717488,
+          0.0005298908079312358,
+          1435.691090321806,
+          102.13315926215058,
+          724.5777503451907,
+          51.83523374553538,
+          287.70386277589387,
+          20.80418752705701,
+          126.56399029542744,
+          12.857018572292317,
+          141.16267751424883,
+          10.016130888926279,
+          69.28132604529998,
+          6.826817131788397,
+          66.0025053208055,
+          5.636817580261807,
+          62.41024853668812,
+          5.556518816260913,
+          50.79431633632633,
+          4.758456257446745,
+          33.64588313428735,
+          4.62451291256683,
+          43.48859096990793,
+          4.72079493667605,
+          32.10134801916457,
+          4.520227031260344,
+          26.691303282746617,
+          4.322151608913693,
+          23.82062320473096,
+          4.363865719526136,
+          23.69942890796527,
+          3.6886838879579904,
+          21.498757814666963,
+          3.9937466920702613,
+          20.018589281123834,
+          4.045717936717253,
+          17.048668633601253,
+          4.667883750616691,
+          17.902354744675844,
+          5.321043887452918,
+          18.74464173283221,
+          6.24321656671627,
+          496449.1081214734,
+          103388.44914865831,
+          404615.6119701389,
+          38962.34421966458,
+          2596052.5910787205,
+          463851.9349620931,
+          0.0012001114502873773,
+          0.000495889132559661
+        ]
+      },
+      "ridge": {
+        "implementation": "sklearn.linear_model.Ridge",
+        "solver": "cholesky",
+        "fit_intercept": true,
+        "fit_split": "train",
+        "fit_sample_count": 1221
+      }
+    }
+  },
+  "comparison": [
+    {
+      "target": "valence",
+      "representation": "MERT Layer 12",
+      "input_dimension": 768,
+      "selected_alpha": 1000.0,
+      "test_mae": 0.6351445654405382,
+      "test_r2": 0.5797803121408952,
+      "test_pearson_r": 0.7688553243976592,
+      "reused_module_c_evidence": true
+    },
+    {
+      "target": "valence",
+      "representation": "Conventional Acoustic 51-D",
+      "input_dimension": 51,
+      "selected_alpha": 100.0,
+      "test_mae": 0.7704990495578529,
+      "test_r2": 0.36814982283192577,
+      "test_pearson_r": 0.6097082744706708,
+      "reused_module_c_evidence": false
+    },
+    {
+      "target": "arousal",
+      "representation": "MERT Layer 12",
+      "input_dimension": 768,
+      "selected_alpha": 1000.0,
+      "test_mae": 0.7445561800716177,
+      "test_r2": 0.5114217056357836,
+      "test_pearson_r": 0.7155093111311632,
+      "reused_module_c_evidence": true
+    },
+    {
+      "target": "arousal",
+      "representation": "Conventional Acoustic 51-D",
+      "input_dimension": 51,
+      "selected_alpha": 10.0,
+      "test_mae": 0.8604290900772402,
+      "test_r2": 0.3741616428451243,
+      "test_pearson_r": 0.6117927498285562,
+      "reused_module_c_evidence": false
+    }
+  ],
+  "test_prediction_artifact": {
+    "path": "outputs/results/module_e_stage3_test_predictions.csv",
+    "rows": 522,
+    "unique_test_ids": 261,
+    "splits_present": [
+      "test"
+    ]
+  },
+  "controls": {
+    "scaler_fit_split": "train",
+    "ridge_fit_split": "train",
+    "baseline_mean_source": "train_target_only",
+    "validation_in_final_refit": false,
+    "test_used_for_fitting_or_selection": false,
+    "post_test_tuning_performed": false,
+    "alpha_selection_rerun": false,
+    "acoustic_extraction_rerun": false,
+    "mert_evaluation_rerun": false,
+    "rq4_analysis_performed": false,
+    "official_evaluation_calls_per_target": 1
+  },
+  "software_environment": {
+    "python": "3.10.21",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3",
+    "scikit_learn": "1.7.2"
+  }
+}

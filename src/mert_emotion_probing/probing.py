@@ -572,14 +572,16 @@ def fit_train_evaluate_test(
     data: TrainTestData,
     *,
     alpha: float,
+    expected_dimension: int = EXPECTED_HIDDEN_DIMENSION,
+    include_scaler_statistics: bool = False,
 ) -> tuple[dict[str, Any], np.ndarray, np.ndarray]:
     """Fit the frozen Train-only Ridge configuration and evaluate held-out Test."""
 
     if not np.isfinite(alpha) or alpha <= 0:
         raise ValueError("Frozen Ridge alpha must be finite and positive")
     expected_shapes = {
-        "x_train": (EXPECTED_SPLIT_COUNTS["train"], EXPECTED_HIDDEN_DIMENSION),
-        "x_test": (EXPECTED_SPLIT_COUNTS["test"], EXPECTED_HIDDEN_DIMENSION),
+        "x_train": (EXPECTED_SPLIT_COUNTS["train"], expected_dimension),
+        "x_test": (EXPECTED_SPLIT_COUNTS["test"], expected_dimension),
         "y_train": (EXPECTED_SPLIT_COUNTS["train"],),
         "y_test": (EXPECTED_SPLIT_COUNTS["test"],),
     }
@@ -657,6 +659,9 @@ def fit_train_evaluate_test(
             "fit_sample_count": int(len(data.train_ids)),
         },
     }
+    if include_scaler_statistics:
+        result["standardization"]["fitted_feature_mean"] = scaler.mean_.tolist()
+        result["standardization"]["fitted_feature_variance"] = scaler.var_.tolist()
     return result, prediction.copy(), baseline_prediction
 
 

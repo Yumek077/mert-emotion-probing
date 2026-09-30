@@ -30,15 +30,19 @@ Module D implementation, verification, ChatGPT research interpretation review,
 and the researcher learning checkpoint are complete. Its research protocol and
 results are accepted for project use; RQ2 is complete under the frozen protocol.
 
-The remaining experiments are planned and have not yet been completed:
+Module E / operational RQ3 is complete under the frozen protocol. The acoustic
+baseline and the authoritative Module C Layer-12 results have been compared on
+the same fixed Test split; final researcher learning and interpretation review
+are next.
 
-- Module E — Conventional Acoustic Baseline / RQ3: design next; primary MERT comparator remains Layer 12.
-- Module F — Acoustic Correlate / Confound & Error Analysis / RQ4: design after E; core focus is Tempo/Energy.
+The remaining research is:
+
+- Module F — Acoustic Correlate / Confound & Error Analysis / RQ4: design after the Module E checkpoint; core focus is Tempo/Energy. It has not started.
 - Final Synthesis: connect RQ1–RQ4. Optional extensions remain deferred until the core evidence chain is complete.
 
 The authoritative research records are in [`docs/research_logs/`](docs/research_logs/).
 The latest record is
-[`Module D — Layer-wise Emotion Decodability Analysis`](docs/research_logs/module_d_layerwise_emotion_decodability_analysis.md).
+[`Module E — Conventional Acoustic Baseline / RQ3`](docs/research_logs/module_e_conventional_acoustic_baseline.md).
 
 ## Evaluation
 
@@ -71,8 +75,17 @@ This project uses Python 3.10 with CUDA-enabled PyTorch and has been tested loca
 Work in progress.
 
 Current stage:
-Module D finalized; RQ2 complete under the frozen protocol.
-Post-Module-D roadmap frozen; next task is Module E design. No Module E experiment has been run.
+Module E / RQ3 complete under the frozen protocol. The next step is the Module E
+researcher learning checkpoint and interpretation review, followed by Module F design.
+
+The pre-specified MERT Layer-12 representation has lower Test MAE and higher
+Test R²/Pearson r than the frozen 51-D conventional acoustic baseline for both
+targets. Acoustic Test R² is 0.368150 for Valence and 0.374162 for Arousal;
+authoritative MERT Layer-12 R² is 0.579780 and 0.511422. This descriptive
+comparison does not establish unique information or statistical superiority.
+The MERT values reuse Module C evidence. See the
+[`RQ3 comparison table`](outputs/results/module_e_stage3_rq3_comparison.csv) and
+[`Module E technical report`](docs/codex_reports/module_e_stage3_frozen_test_evaluation_and_rq3_comparison.md).
 
 Both targets are linearly decodable at all 13 tested levels under the fixed
 protocol. Valence is comparatively stable after early gains; Arousal has a broad
