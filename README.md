@@ -35,14 +35,16 @@ baseline and the authoritative Module C Layer-12 results have been compared on
 the same fixed Test split; the researcher learning checkpoint material and final
 interpretation review are complete.
 
+Module F / operational RQ4 is finalized after researcher and ChatGPT review of
+both the Validation and frozen Test analyses. Its core evidence is complete.
+
 The remaining research is:
 
-- Module F — Acoustic Correlate / Confound & Error Analysis / RQ4: design is next; core focus is Tempo/Energy. It has not started.
 - Final Synthesis: connect RQ1–RQ4. Optional extensions remain deferred until the core evidence chain is complete.
 
 The authoritative research records are in [`docs/research_logs/`](docs/research_logs/).
 The latest record is
-[`Module E — Conventional Acoustic Baseline / RQ3`](docs/research_logs/module_e_conventional_acoustic_baseline.md).
+[`Module F — Acoustic Correlate and Error Analysis / RQ4`](docs/research_logs/module_f_acoustic_correlate_and_error_analysis.md).
 
 ## Evaluation
 
@@ -75,9 +77,18 @@ This project uses Python 3.10 with CUDA-enabled PyTorch and has been tested loca
 Work in progress.
 
 Current stage:
-Module E / RQ3 finalized under the frozen protocol, including the researcher
-learning checkpoint material and final interpretation review. The next research
-task is Module F / RQ4 design; no Module F experiment has started.
+Module F / RQ4 finalized under the frozen protocol after both Stage reviews.
+RQ1–RQ4 core evidence is complete. The next research task is Final Synthesis.
+
+Across the frozen Validation and Test partitions, Tempo associations with the
+analyzed emotion targets, predictions and residuals were small under the
+automated BPM measurement. Energy showed positive associations with both
+targets and MERT predictions; smaller positive associations remained in MERT
+residuals. This supports a plausible partial acoustic explanation, rather than
+a complete or causal account. Test had already been viewed in Modules C–E;
+Module F uses it as a frozen descriptive consistency check. See the
+[`Module F research log`](docs/research_logs/module_f_acoustic_correlate_and_error_analysis.md)
+and [`Validation/Test association figure`](outputs/figures/module_f_stage2_validation_test_associations.png).
 
 The pre-specified MERT Layer-12 representation has lower Test MAE and higher
 Test R²/Pearson r than the frozen 51-D conventional acoustic baseline for both

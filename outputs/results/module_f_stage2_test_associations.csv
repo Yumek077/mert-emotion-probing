@@ -1,0 +1,21 @@
+partition,target,analysis_layer,analysis_object,correlate,feature_name,association_type,pearson_r,sample_count,statistic_status,residual_definition,positive_residual_meaning
+test,valence,A,true_target,Tempo,tempo_bpm,correlate_to_true_target,0.00046362183347819418,261,defined,y_true - prediction,model under-predicts the target
+test,valence,A,true_target,Energy,rms_mean,correlate_to_true_target,0.33060492565336391,261,defined,y_true - prediction,model under-predicts the target
+test,valence,B,mert_layer12_prediction,Tempo,tempo_bpm,correlate_to_prediction,0.021955070736898997,261,defined,y_true - prediction,model under-predicts the target
+test,valence,B,mert_layer12_prediction,Energy,rms_mean,correlate_to_prediction,0.30995939470027284,261,defined,y_true - prediction,model under-predicts the target
+test,valence,B,acoustic51_prediction,Tempo,tempo_bpm,correlate_to_prediction,-0.0060043089616637971,261,defined,y_true - prediction,model under-predicts the target
+test,valence,B,acoustic51_prediction,Energy,rms_mean,correlate_to_prediction,0.54452496396295125,261,defined,y_true - prediction,model under-predicts the target
+test,valence,C,mert_layer12_residual,Tempo,tempo_bpm,correlate_to_residual,-0.02260431879733547,261,defined,y_true - prediction,model under-predicts the target
+test,valence,C,mert_layer12_residual,Energy,rms_mean,correlate_to_residual,0.18337973949883832,261,defined,y_true - prediction,model under-predicts the target
+test,valence,C,acoustic51_residual,Tempo,tempo_bpm,correlate_to_residual,0.0051827690588548839,261,defined,y_true - prediction,model under-predicts the target
+test,valence,C,acoustic51_residual,Energy,rms_mean,correlate_to_residual,0.00012343588398083252,261,defined,y_true - prediction,model under-predicts the target
+test,arousal,A,true_target,Tempo,tempo_bpm,correlate_to_true_target,0.047930417766600994,261,defined,y_true - prediction,model under-predicts the target
+test,arousal,A,true_target,Energy,rms_mean,correlate_to_true_target,0.27346172480863928,261,defined,y_true - prediction,model under-predicts the target
+test,arousal,B,mert_layer12_prediction,Tempo,tempo_bpm,correlate_to_prediction,0.02763866191654912,261,defined,y_true - prediction,model under-predicts the target
+test,arousal,B,mert_layer12_prediction,Energy,rms_mean,correlate_to_prediction,0.30074120840136914,261,defined,y_true - prediction,model under-predicts the target
+test,arousal,B,acoustic51_prediction,Tempo,tempo_bpm,correlate_to_prediction,-0.0055552715657104009,261,defined,y_true - prediction,model under-predicts the target
+test,arousal,B,acoustic51_prediction,Energy,rms_mean,correlate_to_prediction,0.42284241729232924,261,defined,y_true - prediction,model under-predicts the target
+test,arousal,C,mert_layer12_residual,Tempo,tempo_bpm,correlate_to_residual,0.040409950965461815,261,defined,y_true - prediction,model under-predicts the target
+test,arousal,C,mert_layer12_residual,Energy,rms_mean,correlate_to_residual,0.084605336174552084,261,defined,y_true - prediction,model under-predicts the target
+test,arousal,C,acoustic51_residual,Tempo,tempo_bpm,correlate_to_residual,0.064916383175432343,261,defined,y_true - prediction,model under-predicts the target
+test,arousal,C,acoustic51_residual,Energy,rms_mean,correlate_to_residual,0.016597145744347157,261,defined,y_true - prediction,model under-predicts the target
