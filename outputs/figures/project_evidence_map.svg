@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1952" height="704" viewBox="0 0 1952 704" role="img" aria-labelledby="map-title map-description">
+  <title id="map-title">Project evidence map: probing musical emotion in pretrained music representations</title>
+  <desc id="map-description">Seven nodes form a research progression from DEAM data protocol and frozen MERT representations through four research questions to bounded interpretation. The study shares one frozen population and split, reuses Layer-12 evidence and predictions, and treats the later Test associations as descriptive consistency evidence. Arrows show analytical progression, not causality or independent experiments.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 1 1 L 8 5 L 1 9" fill="none" stroke="#536477" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #203247; }
+      .title { font-size: 32px; font-weight: 700; }
+      .subtitle { font-size: 22px; fill: #536477; }
+      .group-label { font-size: 20px; font-weight: 700; letter-spacing: 0.8px; }
+      .node-label { font-size: 19px; font-weight: 700; fill: #41637d; }
+      .node-title { font-size: 24px; font-weight: 700; }
+      .body { font-size: 21px; }
+      .footer { font-size: 21px; fill: #536477; }
+      .arrow { fill: none; stroke: #536477; stroke-width: 2.4; marker-end: url(#arrow); }
+      .node { fill: #ffffff; stroke: #c2ccd6; stroke-width: 1.5; rx: 10; }
+    </style>
+  </defs>
+  <rect width="1952" height="704" fill="#ffffff"/>
+  <text class="title" x="44" y="56">Project evidence map</text>
+  <text class="subtitle" x="44" y="94">Probing Musical Emotion in Pretrained Music Representations</text>
+  <rect x="32" y="128" width="324" height="440" rx="14" fill="#f0f4f7"/>
+  <rect x="374" y="128" width="1190" height="440" rx="14" fill="#f3f6f8"/>
+  <rect x="1582" y="128" width="338" height="440" rx="14" fill="#eef4f1"/>
+  <text class="group-label" x="48" y="157">FOUNDATION</text>
+  <text class="group-label" x="392" y="157">RESEARCH EVIDENCE</text>
+  <text class="group-label" x="1600" y="157">BOUNDED INTERPRETATION</text>
+  <g id="node-a">
+    <rect class="node" x="48" y="180" width="292" height="156"/>
+    <text class="node-label" x="66" y="209">A · DATA PROTOCOL</text>
+    <text class="node-title" x="66" y="244">DEAM excerpts</text>
+    <text class="body" x="66" y="280"><tspan x="66">One item per sample</tspan><tspan x="66" dy="29">Static Valence / Arousal</tspan></text>
+  </g>
+  <path class="arrow" d="M 194 340 L 194 357"/>
+  <g id="node-b">
+    <rect class="node" x="48" y="364" width="292" height="188"/>
+    <text class="node-label" x="66" y="393">B · REPRESENTATIONS</text>
+    <text class="node-title" x="66" y="428">Frozen MERT</text>
+    <text class="body" x="66" y="462"><tspan x="66">Temporal mean pooling</tspan><tspan x="66" dy="26">Verified levels / ID joins</tspan><tspan x="66" dy="26">Fixed split</tspan></text>
+  </g>
+  <path class="arrow" d="M 343 458 L 361 458 L 361 363 L 386 363"/>
+  <g id="node-rq1">
+    <rect class="node" x="392" y="216" width="260" height="294"/>
+    <text class="node-label" x="410" y="249">RQ1 · C</text>
+    <text class="node-title" x="410" y="285">Can decode?</text>
+    <text class="body" x="410" y="332"><tspan x="410">Pre-specified Layer 12</tspan><tspan x="410" dy="30">Linear decoding of</tspan><tspan x="410" dy="30">both emotion targets</tspan><tspan x="410" dy="42">Above Train-mean</tspan><tspan x="410" dy="30">reference</tspan></text>
+  </g>
+  <path class="arrow" d="M 657 363 L 684 363"/>
+  <g id="node-rq2">
+    <rect class="node" x="690" y="216" width="260" height="294"/>
+    <text class="node-label" x="708" y="249">RQ2 · D</text>
+    <text class="node-title" x="708" y="285">Across depth</text>
+    <text class="body" x="708" y="332"><tspan x="708">Early accessibility</tspan><tspan x="708" dy="42">Valence: fairly stable</tspan><tspan x="708" dy="42">Arousal: middle-depth</tspan><tspan x="708" dy="30">high region, then</tspan><tspan x="708" dy="30">late decline</tspan></text>
+  </g>
+  <path class="arrow" d="M 955 363 L 982 363"/>
+  <g id="node-rq3">
+    <rect class="node" x="988" y="216" width="260" height="294"/>
+    <text class="node-label" x="1006" y="249">RQ3 · E</text>
+    <text class="node-title" x="1006" y="285">Selected acoustics</text>
+    <text class="body" x="1006" y="332"><tspan x="1006">Layer 12 decodes better</tspan><tspan x="1006" dy="30">than selected 51-D</tspan><tspan x="1006" dy="30">waveform-derived</tspan><tspan x="1006" dy="30">acoustic representation</tspan><tspan x="1006" dy="42">Shared probing rules</tspan></text>
+  </g>
+  <path class="arrow" d="M 1253 363 L 1280 363"/>
+  <g id="node-rq4">
+    <rect class="node" x="1286" y="216" width="260" height="294"/>
+    <text class="node-label" x="1304" y="249">RQ4 · F</text>
+    <text class="node-title" x="1304" y="285">Tempo / Energy</text>
+    <text class="body" x="1304" y="332"><tspan x="1304">Tempo: little simple</tspan><tspan x="1304" dy="30">linear evidence under</tspan><tspan x="1304" dy="30">automated BPM</tspan><tspan x="1304" dy="42">Energy: plausible</tspan><tspan x="1304" dy="30">partial explanation</tspan></text>
+  </g>
+  <path class="arrow" d="M 1551 363 L 1592 363"/>
+  <g id="node-interpretation">
+    <rect class="node" x="1598" y="216" width="306" height="294" style="stroke:#aec6b8"/>
+    <text class="node-label" x="1616" y="249" style="fill:#446a55">COMBINED EVIDENCE</text>
+    <text class="node-title" x="1616" y="285">Linear accessibility</text>
+    <text class="body" x="1616" y="332"><tspan x="1616">Descriptive evidence</tspan><tspan x="1616" dy="30">within this setting</tspan><tspan x="1616" dy="42">No proof of human-like</tspan><tspan x="1616" dy="30">understanding, unique /</tspan><tspan x="1616" dy="30">non-acoustic information,</tspan><tspan x="1616" dy="30">or causality</tspan></text>
+  </g>
+  <line x1="44" y1="600" x2="1908" y2="600" stroke="#d9e0e6"/>
+  <text class="footer" x="44" y="634">Arrows denote analytical progression. All evidence shares one frozen DEAM population and split.</text>
+  <text class="footer" x="44" y="668">Layer-12 evidence and predictions are reused; the later Test associations are a descriptive consistency check.</text>
+</svg>

@@ -114,6 +114,8 @@ The core study does not fine-tune MERT, train foundation models, generate music,
 
 ## Repository Navigation and Reproducibility
 
+For the complete synthesis, see the [Final Research Report](docs/final_research_report.md) and [Project Evidence Map](outputs/figures/project_evidence_map.svg).
+
 Accepted research narratives are in [research logs](docs/research_logs/); detailed methods, commands, review gates, and verification history are in [Stage reports](docs/codex_reports/). The RQ sections above link directly to the accepted C–F logs and primary numerical sources. The [project workflow](docs/project_workflow.md) documents the collaboration process, while the [Post-Module-D roadmap](docs/research_roadmap_after_module_d.md) preserves historical planning and operational scope.
 
 - [outputs/results/](outputs/results/): frozen metrics, saved predictions, associations, and verification records.
@@ -126,4 +128,4 @@ Documented runs used Python 3.10 with CUDA-enabled PyTorch on an NVIDIA RTX 4060
 
 ## Current Project Status
 
-Modules A–F and the RQ1–RQ4 core evidence are complete and frozen. Final Synthesis Stage 1 (repository audit) and Stage 2 (presentation/navigation cleanup) are completed and have passed researcher + ChatGPT review. The next task is Stage 3 — Final Research Synthesis design. Optional research extensions remain deferred; synthesis does not reopen experiments.
+Modules A–F and the RQ1–RQ4 core evidence are complete and frozen. Final Synthesis Stages 1–3 (repository audit, presentation/navigation cleanup, and final research synthesis) are completed and have passed researcher + ChatGPT review. The next task is Stage 4 — personal learning synthesis. Optional research extensions remain deferred; synthesis does not reopen experiments.
