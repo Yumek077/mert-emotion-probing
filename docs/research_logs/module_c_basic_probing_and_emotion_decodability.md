@@ -147,12 +147,12 @@ The Stage C3 artifact records the canonical cache, label table, and split identi
 
 ## Artifacts and Source Files
 
-- Stage records: `docs/codex_reports/module_c_stage1_probing_and_regression_foundations.md` through `module_c_stage4_held_out_test_evaluation.md`.
+- Stage records: `docs/codex_reports/module_c_stage1_probing_and_regression_foundations.md` through the [C4 held-out Test report](../codex_reports/module_c_stage4_held_out_test_evaluation.md).
 - Reusable probing implementation: `src/mert_emotion_probing/probing.py`.
 - Stage C3 runner and verifier: `scripts/run_basic_probing.py`, `scripts/verify_basic_probing_results.py`.
 - Stage C4 runner and verifier: `scripts/run_held_out_test_evaluation.py`, `scripts/verify_held_out_test_results.py`.
 - Validation results: `outputs/results/module_c_stage3_validation.json` and `outputs/results/module_c_stage3_validation_predictions.csv`.
-- Test results: `outputs/results/module_c_stage4_test.json` and `outputs/results/module_c_stage4_test_predictions.csv`.
+- Test results: [authoritative C4 Test JSON](../../outputs/results/module_c_stage4_test.json) and [saved Test predictions](../../outputs/results/module_c_stage4_test_predictions.csv).
 - Frozen split: `data/metadata/deam_primary_split_seed42.csv`.
 - Canonical cache: `outputs/embeddings/deam_mert_v1_95m_meanpool_all_layers.pt` (generated locally and excluded from Git).
 

@@ -8,6 +8,8 @@ The Module D Test trajectory does not select a new MERT comparator. Layer 12 rem
 
 **Module E / operational RQ3 is finalized under the frozen protocol.** All three implementation Stages passed researcher review. The researcher learning checkpoint material and final interpretation review were completed on 2026-10-01. The review confirmed that the reported numbers match the authoritative artifacts and that the conclusion, reused evidence provenance, prior Test exposure and interpretation boundaries are accurate. The Chinese learning note remains private/local and excluded from Git. No experiment, frozen protocol or result changed. Module F / RQ4 has not started; its design is the next research task.
 
+> **Historical-status note:** The paragraph above records Module E's closure before F. [Module F / RQ4 is now complete](module_f_acoustic_correlate_and_error_analysis.md); the current project phase is Final Synthesis. The original closure statement is preserved.
+
 ## Stage 1 — Acoustic extraction and validation (complete)
 
 The frozen 51-dimensional baseline contains one estimated global BPM; temporal mean and standard deviation of frame RMS; those statistics for MFCC1–20 excluding coefficient 0; and those statistics for spectral centroid, bandwidth, 0.85 rolloff, and zero-crossing rate. Audio is decoded at actual recording duration, converted to mono, and resampled to 24 kHz. Frames use length 2,048 and hop 512, with Hann window where applicable. RMS uses the decoded-amplitude path before any MERT input normalization.
@@ -48,7 +50,7 @@ All 19 final verification checks passed. The saved acoustic Test CSV contains 52
 
 The Module C results and prediction artifacts remain unchanged. Their metrics were verified from their saved predictions, and comparison rows exactly match both source artifacts. The MERT rows reuse the accepted RQ1 evidence; they are not a new MERT experiment or an independent replication. The fixed Test set had already been examined in C/D, and that prior exposure remains part of the comparison's provenance. It did not select the MERT layer or change the frozen acoustic design.
 
-Detailed commands, identities, checks and files are in the [Stage 3 report](../codex_reports/module_e_stage3_frozen_test_evaluation_and_rq3_comparison.md). The result, predictions, comparison table, start record and verification use `outputs/results/module_e_stage3_*`. Raw audio and both representation caches remain local and excluded from Git.
+Detailed commands, identities, checks and files are in the [Stage 3 report](../codex_reports/module_e_stage3_frozen_test_evaluation_and_rq3_comparison.md). Primary evidence is the [RQ3 comparison CSV](../../outputs/results/module_e_stage3_rq3_comparison.csv), [acoustic Test JSON](../../outputs/results/module_e_stage3_test.json), and [saved acoustic Test predictions](../../outputs/results/module_e_stage3_test_predictions.csv); MERT values reuse the [authoritative C4 Test JSON](../../outputs/results/module_c_stage4_test.json). The result, predictions, comparison table, start record and verification use `outputs/results/module_e_stage3_*`. Raw audio and both representation caches remain local and excluded from Git.
 
 ## RQ3 conclusion and evidence boundary
 
@@ -69,5 +71,7 @@ RMS remains a decoded-amplitude signal descriptor rather than calibrated percept
 - Why Module F requires its own design and cannot be completed by this representation comparison.
 
 ## Inputs to future RQ4
+
+> **Historical handoff:** The paragraph below records the next step at E closure. See the [completed Module F log](module_f_acoustic_correlate_and_error_analysis.md) for the subsequent RQ4 evidence and Final Synthesis handoff.
 
 Module E supplies the frozen acoustic table, extraction diagnostics, acoustic/MERT predictions and descriptive RQ3 comparison. Future Module F will examine how observed decoding is associated with simple acoustic correlates, particularly Tempo and Energy, after its own design review. No Tempo/Energy-target, prediction, residual or confound association was performed in Module E or during its final learning checkpoint. **RQ3 is finalized; RQ4 has not started. The next step is Module F design, not experiment execution.**
