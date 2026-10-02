@@ -4,6 +4,8 @@ This project investigates what a simple linear probe can read about continuous m
 
 The broader motivation includes whether pretrained representations offer emotion-related information beyond low-level acoustics and whether cues such as tempo and energy help explain prediction behavior. The operational questions below deliberately narrow that motivation to claims supported by the frozen experiments. They do not promise unique information or a quantified account of confounding. The [original research intentions](https://github.com/Yumek077/mert-emotion-probing/blob/b8955d5/README.md) and [frozen Post-Module-D roadmap](docs/research_roadmap_after_module_d.md) preserve the planning history.
 
+For the complete synthesis, see the [Final Research Report](docs/final_research_report.md) and [Project Evidence Map](outputs/figures/project_evidence_map.svg).
+
 ## Research Questions
 
 **Can decode → Where across depth → Compared with simple acoustics → Alternative acoustic explanations**
@@ -114,8 +116,6 @@ The core study does not fine-tune MERT, train foundation models, generate music,
 
 ## Repository Navigation and Reproducibility
 
-For the complete synthesis, see the [Final Research Report](docs/final_research_report.md) and [Project Evidence Map](outputs/figures/project_evidence_map.svg).
-
 Accepted research narratives are in [research logs](docs/research_logs/); detailed methods, commands, review gates, and verification history are in [Stage reports](docs/codex_reports/). The RQ sections above link directly to the accepted C–F logs and primary numerical sources. The [project workflow](docs/project_workflow.md) documents the collaboration process, while the [Post-Module-D roadmap](docs/research_roadmap_after_module_d.md) preserves historical planning and operational scope.
 
 - [outputs/results/](outputs/results/): frozen metrics, saved predictions, associations, and verification records.
@@ -128,4 +128,8 @@ Documented runs used Python 3.10 with CUDA-enabled PyTorch on an NVIDIA RTX 4060
 
 ## Current Project Status
 
-Modules A–F and the RQ1–RQ4 core evidence are complete and frozen. Final Synthesis Stages 1–3 (repository audit, presentation/navigation cleanup, and final research synthesis) are completed and have passed researcher + ChatGPT review. The next task is Stage 4 — personal learning synthesis. Optional research extensions remain deferred; synthesis does not reopen experiments.
+Modules A–F and the RQ1–RQ4 core evidence are complete and frozen. Final Synthesis Stages 1–4 are complete; Stage 4C Researcher Learning Verification is completed / PASS, as confirmed by the researcher. Stage 5 Final Project Consolidation / Closure is completed following final read-only verification (2026-10-03).
+
+**PROJECT STATUS: Research complete → Learning verified → Repository finalized → Maintenance-only.**
+
+The [final closure record](docs/codex_reports/final_synthesis_stage5_final_project_closure.md) records the closure and maintenance policy. Ordinary documentation, link and reproducibility defects may be repaired within the frozen scientific boundaries. New research or RA preparation requires a new explicit task; it is not unfinished work in this mini-project.

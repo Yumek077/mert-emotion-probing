@@ -257,7 +257,15 @@ These notes are Chinese-first, may retain useful English technical terms, and su
 
 Personal notes follow the profile, explanation sequence and tiers above. Separate a short primary student learning layer from deeper reference when needed; do not force every Module to have an equally detailed primary note. Teach the intuition before naming the term, and mark supporting / lookup material explicitly. The default structure below is a review aid, not a requirement to master every subsection independently.
 
-**Current Stage 4 adjustment:** `personal_notes/project_what_i_should_understand.md` is deeper reference material. Its previous closed-book mastery standard is paused and is not the current completion threshold. Preserve the file for reference; a more accessible primary learning layer and simplified verification require the subsequent researcher + ChatGPT review process. The learning artifact exists, researcher mastery verification remains paused, and Stage 5 has not started. Do not infer that a written note proves mastery or resume verification from an old handoff.
+**Current learning state (2026-10-03):** Final Synthesis Stages 1–4 are complete. Stage 4C Researcher Learning Verification is completed / PASS, as confirmed by the researcher. The former paused mastery state and broader closed-book verification standard are superseded. `personal_notes/project_what_i_should_understand.md` remains deeper reference; the Primary Learning Guide and Module notes remain private. Learning verification is distinct from scientific evidence. Preserve the learning profile, A–E explanation rule and three tiers above; do not restart completed verification from an older handoff.
+
+**Current project lifecycle (2026-10-03):** Stage 5 Final Project Consolidation / Closure is completed following final read-only verification. **Research complete → Learning verified → Repository finalized → Maintenance-only.** The [final closure record](codex_reports/final_synthesis_stage5_final_project_closure.md) records the closure and final checkpoint; maintenance-only takes effect after that checkpoint.
+
+**Maintenance-only rule after the final checkpoint:**
+
+- Ordinary documentation, link and reproducibility defects may be repaired.
+- Frozen scientific claims, results and protocols must not be changed without a separately reviewed research decision.
+- New experiments, new RQs, RA preparation and research extensions require a new explicit task; they are not continuation requirements of the completed mini-project. MSc application-facing materials are outside the remaining scope.
 
 Personal notes are review tools, not duplicate technical histories. Keep them detailed enough to learn from but substantially easier to revisit than the Stage reports. Use this default structure:
 

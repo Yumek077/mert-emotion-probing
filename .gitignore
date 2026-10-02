@@ -13,6 +13,7 @@ env/
 # IDE and OS files
 .vscode/
 .idea/
+docs/.obsidian/
 .DS_Store
 Thumbs.db
 
