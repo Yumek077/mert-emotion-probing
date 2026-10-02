@@ -18,7 +18,7 @@ The workflow preserves research continuity across new ChatGPT and Codex sessions
 - A successful experiment must be reproducible, interpretable, and consistent with its locked research protocol.
 - Negative and unexpected results are valid research outcomes.
 - Codex must not make substantive research decisions silently.
-- The researcher need not manually write every line of code, but must understand and be able to explain every core experimental decision.
+- The researcher need not manually write every line of code. Research understanding and explanation should follow the learning tiers below: core concepts independently, supporting decisions with prompting, and technical detail by lookup.
 - Prefer small, validated steps to implementing an entire Module at once.
 - Do not over-engineer beyond the current research need.
 
@@ -31,6 +31,32 @@ Introduce new complexity only when it is required by the current research questi
 **Observed problem → understand the cause → apply the smallest defensible solution → verify → document**
 
 Avoid proactively expanding the experiment beyond the current research objective.
+
+### Researcher Learning Profile and Explanation Rule
+
+**Long-term default established in Final Synthesis Stage 4A:** the researcher is an AI undergraduate encountering AI Music and representation probing for the first time. Do not assume MIR / AI Music research fluency or familiarity with the representation-probing literature. The researcher may recognize terminology and recall the project route without yet having an independent intuition for every concept.
+
+Preserve both scientific rigor and learning accessibility. Necessary ML concepts, including regression, Transformers, representations, data partitions, regularization and evaluation metrics, can be learned. Start from their purpose in this project. Do not require research-paper wording or a mature researcher's abstraction level as proof of understanding. Simplify language and explanation order, not scientific meaning, evidence or limitations.
+
+For every future learning-facing explanation, use this progression:
+
+| Level | Explanation order | Project requirement |
+|---|---|---|
+| **A — Intuition first** | What is this doing? | Use language the undergraduate can naturally understand and retell. |
+| **B — Project meaning** | What does it correspond to here? | Connect to the relevant DEAM audio, Valence / Arousal targets, MERT vectors, Ridge predictions or RQ1–RQ4. A generic textbook definition is insufficient. |
+| **C — Technical name** | What is the professional term? | Introduce the necessary English term after the intuition and project example, and explain it immediately. |
+| **D — Necessary research nuance** | Which qualification matters for this question? | Add nuance when it affects experimental reasoning, interpretation, an evidence boundary or RA / supervisor discussion. Do not turn every caveat into an unprompted mastery requirement. |
+| **E — Optional detail lookup** | Where can the exact detail be recovered? | Keep engineering mechanisms and exact research settings in reference material unless their purpose directly affects a core scientific decision. |
+
+For example, first explain that the linear predictor weights the input numbers, and that Ridge discourages excessively large weights when many features are related. Connect those weights to MERT vectors and predicted emotion scores. Then name Ridge regression, L2 regularization and alpha. Do not begin with a sentence about coefficient magnitude in correlated high-dimensional representations and expect the terminology to supply the intuition.
+
+Apply different language targets to different audiences:
+
+- **Learning-facing material:** first-time AI Music undergraduate; intuition, project examples, then terms and necessary qualifications.
+- **Public research writing:** strong undergraduate research writing. Keep academic structure and scientific precision, use direct sentences, and avoid unnecessary abstraction or imitation of senior research-paper prose.
+- **Scientific and technical records:** retain decisions, provenance, history and necessary detail. These are reference sources, not memorization material; accessibility does not justify removing evidence.
+
+The three learning tiers in Section 4 govern future checkpoints and verification. They supersede earlier broader mastery assumptions in learning plans or historical checkpoints without changing accepted scientific decisions or results. Report artifact implementation, document review and researcher mastery verification as separate states; none alone establishes the others.
 
 ## 3. Roles and Responsibilities
 
@@ -58,7 +84,7 @@ ChatGPT is responsible for:
 - producing the Stage learning checkpoint; and
 - helping create final Module documentation and personal notes.
 
-Explanations should begin in plain language, then introduce formulas, tensor shapes, and technical terminology when they improve understanding.
+Explanations must follow the researcher profile and A–E sequence in Section 2. Introduce formulas or tensor shapes only when they help the current concept; otherwise retain them as supporting or lookup material.
 
 ### Codex
 
@@ -87,7 +113,7 @@ Every research Module follows:
 
 ### Understand
 
-Before implementation, explain the Stage's research purpose, inputs, outputs, important concepts, relevant formulas or tensor shapes, and likely failure modes.
+Before implementation, explain the Stage's research purpose, inputs, outputs and Tier 1 concepts through project-specific intuition. Use Tier 2 material with support when needed for a decision; keep exact formulas, shapes and implementation failure diagnostics as lookup unless directly necessary.
 
 ### Decide
 
@@ -121,24 +147,38 @@ Discuss what the result means, whether it satisfies the Stage objective, alterna
 
 ### Learning Checkpoint
 
-Every completed Stage must include a researcher-facing section titled **“What I should now be able to explain.”** This checkpoint is mandatory before progressing. It should summarize in plain language:
+Every completed Stage must include a researcher-facing section titled **“What I should now be able to explain.”** This checkpoint is mandatory before progressing. Apply the learning tiers below rather than expecting every detail in the report to be reproduced. It should summarize in plain language:
 
 - the Stage's core research logic;
 - important concepts and decisions;
-- useful formulas or tensor shapes;
+- useful formulas or tensor shapes only when needed for the concept, with other detail marked as lookup;
 - what was empirically verified;
 - what the result means; and
 - what the Stage does not establish.
 
 Every research Stage must leave a repository-visible checkpoint, including conceptual Stages that produce no code or experiment. The existing Stage-level documentation convention remains `docs/codex_reports/`. Depending on the nature of the Stage, its report may document conceptual understanding, research decisions, implementation, validation, or experiment execution.
 
-### Three-Level Learning Priority
+### Three-Tier Learning Priority
 
-Human learning should not treat all repository detail as equally important:
+**Tier 1 — Must genuinely understand and explain.** These are the current core of future closed-book verification, using the researcher's own words:
 
-1. **Level 1 — Research Mainline:** highest priority. The researcher should readily explain why the Module exists, its question, input, high-level process, output, and connection to the next Module.
-2. **Level 2 — Key Methodological Decisions:** understand what material choices were made, why they were made, what reasonable alternatives existed, and how those choices affect interpretation. These decisions are the core preparation for research discussion, interviews, applications, and later review.
-3. **Level 3 — Engineering Details:** understand the purpose of important mechanisms and the failures they prevent, but do not memorize exact helper or script names, serialization details, every assertion or command, low-level API syntax, or incidental numerical values that do not affect interpretation. Those details remain recoverable from code and Stage reports.
+1. What the project studies.
+2. What DEAM Valence and Arousal mean.
+3. What a MERT representation roughly is.
+4. Why MERT is frozen and a linear probe is trained.
+5. The basic audio → MERT → pooling → Ridge → prediction → evaluation flow.
+6. What Ridge roughly does.
+7. The distinct roles of Train, Validation and Test.
+8. What MAE, R² and Pearson r roughly assess.
+9. Why RQ1 → RQ2 → RQ3 → RQ4 arise in sequence.
+10. The main findings of the project.
+11. Why these findings do not directly establish that MERT truly understands musical emotion.
+
+**Tier 2 — Understand when encountered; explain with prompting.** Supporting material includes StandardScaler, alpha, Sample-ID alignment, the Train-mean reference, the rough 51-D acoustic recipe, residuals, Energy / RMS, Tempo / BPM, the pre-specified Layer-12 decision, the conceptual reason for single-item extraction, basic Test exposure, and why MERT outperforming selected acoustics does not identify an advantage beyond all acoustics. Explain these through examples and questions when relevant. They need not all appear in the first project introduction or an unprompted answer.
+
+**Tier 3 — Lookup only.** This includes GroupNorm internals, exact padding propagation, the alpha grid and tie-break rule, all 51 acoustic dimensions, exact split counts unless needed, exact MAE / r decimals, all RQ4 coefficients, cache shape, hashes, serialization, CLI / helper names, verification machinery and software/debug history. Do not use recall of these details as proof of mastery. If a mechanism affected a scientific decision, teach the short reason at Tier 2 and retain the detailed mechanism here.
+
+Learning verification tests conceptual understanding at this level, not the ability to reproduce Codex/ChatGPT academic wording. Accept accurate everyday explanations and use prompts for Tier 2. Essential boundaries must remain correct, but the researcher need not independently recite every methodological caveat. A learning checkpoint is not an additional experiment or a reason to reopen frozen evidence.
 
 ### Iterate / Freeze
 
@@ -214,6 +254,10 @@ module_<letter>_what_i_should_understand.md
 Examples include `module_a_what_i_should_understand.md` and `module_b_what_i_should_understand.md`.
 
 These notes are Chinese-first, may retain useful English technical terms, and support long-term review, MSc or RA interview preparation, and rebuilding understanding after the project. They are not GitHub-facing and must remain excluded from Git tracking.
+
+Personal notes follow the profile, explanation sequence and tiers above. Separate a short primary student learning layer from deeper reference when needed; do not force every Module to have an equally detailed primary note. Teach the intuition before naming the term, and mark supporting / lookup material explicitly. The default structure below is a review aid, not a requirement to master every subsection independently.
+
+**Current Stage 4 adjustment:** `personal_notes/project_what_i_should_understand.md` is deeper reference material. Its previous closed-book mastery standard is paused and is not the current completion threshold. Preserve the file for reference; a more accessible primary learning layer and simplified verification require the subsequent researcher + ChatGPT review process. The learning artifact exists, researcher mastery verification remains paused, and Stage 5 has not started. Do not infer that a written note proves mastery or resume verification from an old handoff.
 
 Personal notes are review tools, not duplicate technical histories. Keep them detailed enough to learn from but substantially easier to revisit than the Stage reports. Use this default structure:
 
@@ -300,6 +344,8 @@ When starting a new ChatGPT or Codex conversation for a later Stage or Module, d
 
 At a Module transition, Codex should generate a repository-grounded Markdown handoff under `handoffs/` for the researcher to paste into the new ChatGPT research conversation. A handoff is a local context-recovery aid, not a formal research artifact: `handoffs/` must remain excluded from Git, and handoff files must not be committed.
 
+Future handoffs must recover the researcher learning profile, A–E explanation sequence, current learning tiers and verification state as well as the scientific state. Read this workflow before using an older handoff's learning expectations. Preserve historical handoffs; their former next-step instructions do not override current user instructions or the Stage 4A alignment rule.
+
 At minimum, inspect:
 
 1. `docs/project_workflow.md`
@@ -363,7 +409,7 @@ A Module is not complete merely because its code ran. Before declaring completio
 - implementation matches the protocol;
 - verification passed;
 - important warnings were interpreted;
-- the researcher completed the learning checkpoint;
+- the researcher completed the appropriately tiered learning checkpoint, with artifact creation, review and actual learning verification reported separately;
 - a GitHub-facing English research/implementation log exists;
 - a Chinese personal note exists and remains private;
 - repository artifacts are organized correctly;
